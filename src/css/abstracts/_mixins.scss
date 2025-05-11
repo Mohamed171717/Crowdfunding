@@ -1,0 +1,25 @@
+
+@import url(_variables.scss);
+
+@mixin flex($justify : space-between, $items :center, $gap : 20px ) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $items;
+    gap: $gap;
+};
+
+@mixin grid($gap : 20px, $template : repeat(auto-fit, minmax(200px, 1fr))) {
+    display: grid;
+    grid-template-columns: $template;
+    gap: $gap;
+};
+
+@mixin button($radius: 40px, $bg: #fff, $padding: 1.2rem 1.5rem) {
+    border: none;
+    padding: $padding;
+    cursor: pointer;
+    color: $primary;
+    background-color: $bg;
+    border-radius: $radius;
+};
+
