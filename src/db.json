@@ -1,0 +1,75 @@
+
+
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Jane Doe",
+            "role": "campaigner",
+            "isActive": true,
+            "email": "jane@example.com",
+            "password": "hashed_password"
+        },
+        {
+            "id": 2,
+            "name": "Jane Doe",
+            "role": "campaigner",
+            "isActive": true,
+            "email": "jane@example.com",
+            "password": "hashed_password"
+        },
+        {
+            "id": 3,
+            "name": "Jane Doe",
+            "role": "campaigner",
+            "isActive": true,
+            "email": "jane@example.com",
+            "password": "hashed_password"
+        }
+    ],
+    "campaigns": [
+        {
+            "id": 1,
+            "title": "Smart Watch",
+            "creatorId": 1,
+            "goal": 5000,
+            "deadline": "2024-12-31",
+            "isApproved": false,
+            "rewards": [
+                { "id": 1, "title": "Early Bird", "amount": 50 }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "pc reader",
+            "creatorId": 1,
+            "goal": 5000,
+            "deadline": "2024-12-31",
+            "isApproved": false,
+            "rewards": [
+                { "id": 1, "title": "Early Bird", "amount": 50 }
+            ]
+        }
+    ],
+    "pledges": [
+        {
+            "id": 1,
+            "campaignId": 1,
+            "userId": 2,
+            "amount": 100,
+            "rewardId": 1
+        },
+        {
+            "id": 2,
+            "campaignId": 1,
+            "userId": 2,
+            "amount": 100,
+            "rewardId": 1
+        }
+    ],
+    "updates": [
+        
+    ]
+
+
+}

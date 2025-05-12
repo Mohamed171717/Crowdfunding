@@ -1,0 +1,23 @@
+{
+  "name": "crowdfunding",
+  "version": "1.0.0",
+  "description": "the crowdfunding for small priojects",
+  "homepage": "https://github.com/Mohamed171717/Crowdfunding-#readme",
+  "bugs": {
+    "url": "https://github.com/Mohamed171717/Crowdfunding-/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohamed171717/Crowdfunding-.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}
