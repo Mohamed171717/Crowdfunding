@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../main.js"></script>
     <title>Campainer</title>
 </head>
 <body>
-    <h2>Campainer</h2>
+    <h1>Welcome, Campaigner</h1>
+
+    <section>
+        <h2>Create New Campaign</h2>
+        <form id="campaignForm">
+        <input type="text" id="title" placeholder="Title" required /><br />
+        <textarea id="description" placeholder="Description" required></textarea><br />
+        <input type="number" id="goal" placeholder="Goal Amount" required /><br />
+        <input type="date" id="deadline" required /><br />
+        <input type="file" id="imageInput" accept="image/*" required /><br />
+        <button type="submit">Create Campaign</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Your Campaigns</h2>
+        <ul id="campaignList"></ul>
+    </section>
+
 </body>
 </html>
