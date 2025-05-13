@@ -4,27 +4,27 @@
     "users": [
         {
             "id": 1,
-            "name": "Jane Doe",
+            "name": "mohamed",
             "role": "campaigner",
             "isActive": true,
-            "email": "jane@example.com",
-            "password": "hashed_password"
+            "email": "mohamed@gmail.com",
+            "password": "123"
         },
         {
             "id": 2,
-            "name": "Jane Doe",
-            "role": "campaigner",
+            "name": "ahmed",
+            "role": "admin",
             "isActive": true,
-            "email": "jane@example.com",
-            "password": "hashed_password"
+            "email": "ahmed@gmail.com",
+            "password": "456"
         },
         {
             "id": 3,
-            "name": "Jane Doe",
-            "role": "campaigner",
+            "name": "ali",
+            "role": "backer",
             "isActive": true,
-            "email": "jane@example.com",
-            "password": "hashed_password"
+            "email": "ali@gmail.com",
+            "password": "789"
         }
     ],
     "campaigns": [
