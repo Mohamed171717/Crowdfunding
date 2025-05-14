@@ -1,75 +1,91 @@
-
-
 {
-    "users": [
+  "users": [
+    {
+      "id": "1",
+      "name": "mohamed",
+      "role": "campaigner",
+      "isActive": true,
+      "email": "mohamed@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "name": "ahmed",
+      "role": "admin",
+      "isActive": true,
+      "email": "ahmed@gmail.com",
+      "password": "456"
+    },
+    {
+      "id": "3",
+      "name": "ali",
+      "role": "backer",
+      "isActive": true,
+      "email": "ali@gmail.com",
+      "password": "789"
+    },
+    {
+      "id": "5cfc",
+      "name": "Alshimaa",
+      "email": "alshimaa1233323@gmail.com",
+      "password": "7689087",
+      "role": "campaigner"
+    },
+    {
+      "id": "9322",
+      "name": "rahaf",
+      "email": "rahaf@gmail.com",
+      "password": "1234566543",
+      "role": "campaigner"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "1",
+      "title": "Smart Watch",
+      "creatorId": 1,
+      "goal": 5000,
+      "deadline": "2024-12-31",
+      "isApproved": false,
+      "rewards": [
         {
-            "id": 1,
-            "name": "mohamed",
-            "role": "campaigner",
-            "isActive": true,
-            "email": "mohamed@gmail.com",
-            "password": "123"
-        },
-        {
-            "id": 2,
-            "name": "ahmed",
-            "role": "admin",
-            "isActive": true,
-            "email": "ahmed@gmail.com",
-            "password": "456"
-        },
-        {
-            "id": 3,
-            "name": "ali",
-            "role": "backer",
-            "isActive": true,
-            "email": "ali@gmail.com",
-            "password": "789"
+          "id": 1,
+          "title": "Early Bird",
+          "amount": 50
         }
-    ],
-    "campaigns": [
+      ]
+    },
+    {
+      "id": "2",
+      "title": "pc reader",
+      "creatorId": 1,
+      "goal": 5000,
+      "deadline": "2024-12-31",
+      "isApproved": false,
+      "rewards": [
         {
-            "id": 1,
-            "title": "Smart Watch",
-            "creatorId": 1,
-            "goal": 5000,
-            "deadline": "2024-12-31",
-            "isApproved": false,
-            "rewards": [
-                { "id": 1, "title": "Early Bird", "amount": 50 }
-            ]
-        },
-        {
-            "id": 2,
-            "title": "pc reader",
-            "creatorId": 1,
-            "goal": 5000,
-            "deadline": "2024-12-31",
-            "isApproved": false,
-            "rewards": [
-                { "id": 1, "title": "Early Bird", "amount": 50 }
-            ]
+          "id": 1,
+          "title": "Early Bird",
+          "amount": 50
         }
-    ],
-    "pledges": [
-        {
-            "id": 1,
-            "campaignId": 1,
-            "userId": 2,
-            "amount": 100,
-            "rewardId": 1
-        },
-        {
-            "id": 2,
-            "campaignId": 1,
-            "userId": 2,
-            "amount": 100,
-            "rewardId": 1
-        }
-    ],
-    "updates": [
-        
-    ]
-
-
+      ]
+    }
+  ],
+  "pledges": [
+    {
+      "id": "1",
+      "campaignId": 1,
+      "userId": 2,
+      "amount": 100,
+      "rewardId": 1
+    },
+    {
+      "id": "2",
+      "campaignId": 1,
+      "userId": 2,
+      "amount": 100,
+      "rewardId": 1
+    }
+  ],
+  "updates": []
 }
