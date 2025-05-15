@@ -45,13 +45,13 @@ window.addEventListener("load", () => {
                 // Redirect based on role
                 switch (user.role) {
                     case "admin":
-                        window.location.href = "src/js/admin/admin.html";
+                        window.location.href = "./admin/admin.html";
                         break;
                     case "campaigner":
-                        window.location.href = "src/js/campainer/campainer.html";
+                        window.location.href = "./campainer/campainer.html";
                         break;
                     case "backer":
-                        window.location.href = "src/js/backer/watcher.html";
+                        window.location.href = "./backer/watcher.html";
                         break;
                     default:
                         alert("Unknown user role.");

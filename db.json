@@ -5,6 +5,7 @@
       "name": "mohamed",
       "role": "campaigner",
       "isActive": true,
+      "isApprovedRole": true,
       "email": "mohamed@gmail.com",
       "password": "123"
     },
@@ -13,6 +14,7 @@
       "name": "ahmed",
       "role": "admin",
       "isActive": true,
+      "isApprovedRole": true,
       "email": "ahmed@gmail.com",
       "password": "456"
     },
@@ -21,43 +23,9 @@
       "name": "ali",
       "role": "backer",
       "isActive": true,
+      "isApprovedRole": true,
       "email": "ali@gmail.com",
       "password": "789"
-    },
-    {
-      "id": "5cfc",
-      "name": "Alshimaa",
-      "email": "alshimaa1233323@gmail.com",
-      "password": "7689087",
-      "role": "campaigner"
-    },
-    {
-      "id": "9322",
-      "name": "rahaf",
-      "email": "rahaf@gmail.com",
-      "password": "1234566543",
-      "role": "campaigner"
-    },
-    {
-      "id": "1894",
-      "name": "AlshimaaSalah",
-      "email": "alshimaasalah276@gmail.com",
-      "password": "34556787665432",
-      "role": "campaigner"
-    },
-    {
-      "id": "da3c",
-      "name": "aliiii",
-      "email": "aliiiiii@gmail.com",
-      "password": "2334565432",
-      "role": "admin"
-    },
-    {
-      "id": "e4b8",
-      "name": "aliaa",
-      "email": "sds@gmail.com",
-      "password": "6657865432",
-      "role": "campaigner"
     }
   ],
   "campaigns": [
@@ -67,7 +35,8 @@
       "creatorId": 1,
       "goal": 5000,
       "deadline": "2024-12-31",
-      "isApproved": false,
+      "isApproved": true,
+      "image": "../../images/me.jpeg",
       "rewards": [
         {
           "id": 1,
@@ -80,14 +49,15 @@
       "id": "2",
       "title": "pc reader",
       "creatorId": 1,
-      "goal": 5000,
+      "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
+      "image": "../../images/me.jpeg",
       "rewards": [
         {
           "id": 1,
-          "title": "Early Bird",
-          "amount": 50
+          "title": "Bird",
+          "amount": 100
         }
       ]
     }
