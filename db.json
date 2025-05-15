@@ -1,75 +1,82 @@
-
-
 {
-    "users": [
+  "users": [
+    {
+      "id": "1",
+      "name": "mohamed",
+      "role": "campaigner",
+      "isActive": true,
+      "isApprovedRole": true,
+      "email": "mohamed@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "name": "ahmed",
+      "role": "admin",
+      "isActive": true,
+      "isApprovedRole": true,
+      "email": "ahmed@gmail.com",
+      "password": "456"
+    },
+    {
+      "id": "3",
+      "name": "ali",
+      "role": "backer",
+      "isActive": true,
+      "isApprovedRole": true,
+      "email": "ali@gmail.com",
+      "password": "789"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "1",
+      "title": "Smart Watch",
+      "creatorId": 1,
+      "goal": 5000,
+      "deadline": "2024-12-31",
+      "isApproved": true,
+      "image": "../../images/me.jpeg",
+      "rewards": [
         {
-            "id": 1,
-            "name": "mohamed",
-            "role": "campaigner",
-            "isActive": true,
-            "email": "mohamed@gmail.com",
-            "password": "123"
-        },
-        {
-            "id": 2,
-            "name": "ahmed",
-            "role": "admin",
-            "isActive": true,
-            "email": "ahmed@gmail.com",
-            "password": "456"
-        },
-        {
-            "id": 3,
-            "name": "ali",
-            "role": "backer",
-            "isActive": true,
-            "email": "ali@gmail.com",
-            "password": "789"
+          "id": 1,
+          "title": "Early Bird",
+          "amount": 50
         }
-    ],
-    "campaigns": [
+      ]
+    },
+    {
+      "id": "2",
+      "title": "pc reader",
+      "creatorId": 1,
+      "goal": 4000,
+      "deadline": "2024-12-31",
+      "isApproved": false,
+      "image": "../../images/me.jpeg",
+      "rewards": [
         {
-            "id": 1,
-            "title": "Smart Watch",
-            "creatorId": 1,
-            "goal": 5000,
-            "deadline": "2024-12-31",
-            "isApproved": false,
-            "rewards": [
-                { "id": 1, "title": "Early Bird", "amount": 50 }
-            ]
-        },
-        {
-            "id": 2,
-            "title": "pc reader",
-            "creatorId": 1,
-            "goal": 5000,
-            "deadline": "2024-12-31",
-            "isApproved": false,
-            "rewards": [
-                { "id": 1, "title": "Early Bird", "amount": 50 }
-            ]
+          "id": 1,
+          "title": "Bird",
+          "amount": 100
         }
-    ],
-    "pledges": [
-        {
-            "id": 1,
-            "campaignId": 1,
-            "userId": 2,
-            "amount": 100,
-            "rewardId": 1
-        },
-        {
-            "id": 2,
-            "campaignId": 1,
-            "userId": 2,
-            "amount": 100,
-            "rewardId": 1
-        }
-    ],
-    "updates": [
-        
-    ]
-
-
+      ]
+    }
+  ],
+  "pledges": [
+    {
+      "id": "1",
+      "campaignId": 1,
+      "userId": 2,
+      "amount": 100,
+      "rewardId": 1
+    },
+    {
+      "id": "2",
+      "campaignId": 1,
+      "userId": 2,
+      "amount": 100,
+      "rewardId": 1
+    }
+  ],
+  "updates": []
 }
