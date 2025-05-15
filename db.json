@@ -37,6 +37,27 @@
       "email": "rahaf@gmail.com",
       "password": "1234566543",
       "role": "campaigner"
+    },
+    {
+      "id": "1894",
+      "name": "AlshimaaSalah",
+      "email": "alshimaasalah276@gmail.com",
+      "password": "34556787665432",
+      "role": "campaigner"
+    },
+    {
+      "id": "da3c",
+      "name": "aliiii",
+      "email": "aliiiiii@gmail.com",
+      "password": "2334565432",
+      "role": "admin"
+    },
+    {
+      "id": "e4b8",
+      "name": "aliaa",
+      "email": "sds@gmail.com",
+      "password": "6657865432",
+      "role": "campaigner"
     }
   ],
   "campaigns": [

@@ -62,9 +62,9 @@ async function signUp(name, email, password, role) {
     }
     const response = await fetch('http://localhost:3000/users', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      // headers: {
+      //   'Content-Type': 'application/json'
+      // },
       body: JSON.stringify({
         name,
         email,
@@ -73,11 +73,11 @@ async function signUp(name, email, password, role) {
       })
     });
 
-    if (!response.ok) {
-      console.log("Response not OK");
-      return;
-    }
-    const data = await response.text;
+    // if (!response.ok) {
+    //   console.log("Response not OK");
+    //   return;
+    // }
+    // const data = await response.text;
 
   } catch (e) {
     console.error("Error in fetch:", e);
