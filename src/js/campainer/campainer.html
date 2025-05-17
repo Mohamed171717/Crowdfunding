@@ -8,24 +8,33 @@
     <script defer src="../main.js"></script>
 </head>
 <body>
-    <h1>Welcome, Campaigner</h1>
 
-    <section>
-        <h2>Create New Campaign</h2>
-        <form id="campaignForm">
-            <input type="text" id="title" placeholder="Title" required /><br />
-            <textarea id="description" placeholder="Description" required></textarea><br />
-            <input type="number" id="goal" placeholder="Goal Amount" required /><br />
-            <input type="date" id="deadline" required /><br />
-            <input type="file" id="imageInput" accept="image/*" required /><br />
-            <button type="submit">Create Campaign</button>
-        </form>
-    </section>
+    <div class="campaigner-dashboard">
+        <header>
+            <h1>Welcome, Campaigner</h1>
+        </header>
 
-    <section>
-        <h2>Your Campaigns</h2>
-        <ul id="campaignList"></ul>
-    </section>
+        <section class="create-campaign">
+            <h2>Create New Campaign</h2>
+            <form id="campaignForm">
+                <input type="text" id="title" placeholder="Title" required />
+                <textarea id="description" placeholder="Description" required></textarea>
+                <input type="number" id="goal" placeholder="Goal Amount" required />
+                <input type="date" id="deadline" required />
+                <input type="file" id="imageInput" accept="image/*" required />
+                <button type="submit">Create Campaign</button>
+            </form>
+        </section>
 
+        <section class="campaign-list">
+            <h2>Your Campaigns</h2>
+            <ul id="campaignList"></ul>
+        </section>
+
+        <section class="section-box" id="pledge">
+                <h2>Pledges</h2>
+                <div id="pledges-container" class="card-grid"></div>
+            </section>
+    </div>
 </body>
 </html>

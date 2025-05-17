@@ -16,7 +16,7 @@ const pledgesContainer = document.getElementById("pledges-container");
 const campaignId = 1; // You can later dynamically assign it after login
 const userId = 2; // You can later dynamically assign it after login
 
-
+// admin.html dashboard
 // Fetch and display pledges
 async function loadPledges() {
         const res = await fetch(`${API}/pledges?userId=${userId}?campaignId=${campaignId}`);
@@ -45,9 +45,10 @@ async function loadUsers() {
     usersContainer.innerHTML = users.map((user) => 
         `
         <div class="card">
-            <p><strong>${user.name}</strong> (${user.email})</p>
-            <p>Role: ${user.role}</p>
-            <p>Status: ${user.isActive ? "Active" : "Banned"}</p>
+            <p><strong>Username:</strong> ${user.name}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
+            <p><strong>Status:</strong> ${user.isActive ? "Active" : "Banned"}</p>
             ${user.role === "campaigner" && !user.isApprovedRole ? `<button onclick="approveRole(${user.id})">Approve Role</button>` : ""}
             ${user.isActive ? `<button onclick="banUser(${user.id})">Ban</button>` : `<button onclick="activeUser(${user.id})">Active</button>`}
         </div>
@@ -62,16 +63,34 @@ async function loadAdminCampaigns() {
         if (!campaignsContainer) return; 
         campaignsContainer.innerHTML = campaigns.map((campaign) => 
         `
-        <div class="card">
-            <p><strong>${campaign.title}</strong></p>
-            <p>Goal: $${campaign.goal}</p>
-            <p>Deadline: ${campaign.deadline}</p>
-            <p>Status: ${campaign.isApproved ? "Approved" : "Pending"}</p>
-            ${!campaign.isApproved ? `<button onclick="approveCampaign(${campaign.id})">Approve</button>` : ""}
-            <button onclick="deleteCampaign(${campaign.id})">Delete</button>
+        <div class="campains-card">
+            <div class="left">
+                <p><strong>${campaign.title}</strong></p>
+                <p>Goal: $${campaign.goal}</p>
+                <p>Deadline: ${campaign.deadline}</p>
+                <p>Status: ${campaign.isApproved ? "Approved" : "Pending"}</p>
+                <div>
+                    ${!campaign.isApproved ? `<button onclick="approveCampaign(${campaign.id})">Approve</button>` : ""}
+                    <button onclick="deleteCampaign(${campaign.id})">Delete</button>
+                </div>
+            </div>
+            <div class="right">
+                <img src=${campaign.image} alt="photo" />
+            </div>
         </div>
         `
     ).join("");
+};
+
+// ui active
+const linkList = document.querySelectorAll(".list");
+for (let i of linkList) {
+    i.addEventListener("click", function() {
+        for (let j of linkList) {
+            j.classList.remove('active');
+        }
+        this.classList.add('active');
+    })
 }
 
 // Approve campaigner role
@@ -132,45 +151,55 @@ loadAdminCampaigns();
 window.addEventListener("load", function() {
 
     if(!campaignForm) return;
-    campaignForm.addEventListener("submit", (e) => {
+    campaignForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         
         const title = document.getElementById("title").value;
         const description = document.getElementById("description").value;
         const goal = parseFloat(document.getElementById("goal").value);
         const deadline = document.getElementById("deadline").value;
-        const imageFile = imageInput.files[0]; // need to understand
+        const image = imageInput.files[0] ? URL.createObjectURL(imageInput.files[0]) : null;
+        // const image = imageInput.files[0];
         
-        const reader = new FileReader(); // need to understand
-        reader.onloadend = async () => {
-            const base64Image = reader.result; // need to understand
-            console.log(base64Image);
-            const campaignData = {
-                title,
-                description,
-                goal,
-                deadline,
-                creatorId,
-                isApproved: false,
-                rewards: [],
-                image: base64Image,
-            };
-            
-            await fetch(API_URL, {
+        let imageBase64 = "";
+
+        if (image) {
+            imageBase64 = await toBase64(image);
+        }
+
+        const campaignData = {
+            title,
+            description,
+            goal,
+            deadline,
+            creatorId,
+            isApproved: false,
+            rewards: [],
+            image: imageBase64,
+        };
+        const editId = campaignForm.getAttribute("data-edit-id");
+        if (editId) {
+            await fetch(`${API}/campaigns/${editId}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(campaignData)
+            });
+            campaignForm.removeAttribute("data-edit-id");
+        } else {
+            await fetch(`${API}/campaigns`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(campaignData),
             });
-            
-            loadCampaigners();
-            campaignForm.reset();
-        };
-        
-        if (imageFile) {
-            reader.readAsDataURL(imageFile);
         }
+        
+        campaignForm.reset();
+        loadCampaigners();
     });
-    
+});
+
     async function loadCampaigners() {
         const res = await fetch(`${API}/campaigns?creatorId=${creatorId}`);
         const campaigns = await res.json();
@@ -179,16 +208,37 @@ window.addEventListener("load", function() {
         campaigns.forEach((c) => {
             const li = document.createElement("li");
             li.innerHTML = `
-            <strong>${c.title}</strong> - ${c.goal}$ by ${c.deadline}
-            <br /><img src="${c.image}" width="150" alt="Campaign Image" />
+                <div class="left">
+                    <p><strong>Name:</strong> ${c.title}</p>
+                    <p><strong>Description:</strong> ${c.description}</p>
+                    <p><strong>Goal:</strong> $${c.goal}</p>
+                    <p><strong>Deadline:</strong> ${c.deadline}</p>
+                    <button class="edit-btn" onclick="editCampaign(${c.id})">Edit</button>
+                </div>
+                <div class="right">
+                    <img src=${c.image} alt="photo" />
+                </div>
             `;
             campaignList.appendChild(li);
         });
     };
 
+    async function editCampaign(campaignId) {
+        const res = await fetch(`${API}/campaigns/${campaignId}`);
+        const campaign = await res.json();
+
+        // Fill form fields
+        document.getElementById("title").value = campaign.title;
+        document.getElementById("description").value = campaign.description;
+        document.getElementById("goal").value = campaign.goal;
+        document.getElementById("deadline").value = campaign.deadline;
+
+        // Store current campaign ID being edited
+        document.getElementById("campaignForm").setAttribute("data-edit-id", campaign.id);
+    }
+
     loadCampaigners();
 
-});
 
 
 

@@ -33,17 +33,12 @@
       "id": "1",
       "title": "Smart Watch",
       "creatorId": 1,
-      "goal": 5000,
-      "deadline": "2024-12-31",
-      "isApproved": true,
-      "image": "../../images/me.jpeg",
-      "rewards": [
-        {
-          "id": 1,
-          "title": "Early Bird",
-          "amount": 50
-        }
-      ]
+      "goal": 3500,
+      "deadline": "2025-01-02",
+      "isApproved": false,
+      "image": "../../images/download.jpeg",
+      "rewards": [],
+      "description": "hello my name is moahmed"
     },
     {
       "id": "2",
@@ -52,7 +47,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "../../images/me.jpeg",
+      "image": "../../images/download.jpeg",
       "rewards": [
         {
           "id": 1,
@@ -60,6 +55,82 @@
           "amount": 100
         }
       ]
+    },
+    {
+      "id": "3",
+      "title": "pc reader",
+      "creatorId": 1,
+      "goal": 4000,
+      "deadline": "2024-12-31",
+      "isApproved": false,
+      "image": "../../images/download.jpeg",
+      "rewards": [
+        {
+          "id": 1,
+          "title": "Bird",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "pc reader",
+      "creatorId": 1,
+      "goal": 4000,
+      "deadline": "2024-12-31",
+      "isApproved": false,
+      "image": "../../images/download.jpeg",
+      "rewards": [
+        {
+          "id": 1,
+          "title": "Bird",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "pc reader",
+      "description": "we want to make our pc reader",
+      "creatorId": 1,
+      "goal": 4000,
+      "deadline": "2024-12-31",
+      "isApproved": false,
+      "image": "../../images/download.jpeg",
+      "rewards": [
+        {
+          "id": 1,
+          "title": "Bird",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "pc reader",
+      "creatorId": 1,
+      "goal": 4000,
+      "deadline": "2024-12-31",
+      "isApproved": false,
+      "image": "../../images/download.jpeg",
+      "rewards": [
+        {
+          "id": 1,
+          "title": "Bird",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "718d",
+      "title": "smart phone watcher",
+      "description": "i will help people to be good at smart phone",
+      "goal": 2000,
+      "deadline": "2025-05-22",
+      "creatorId": 1,
+      "isApproved": false,
+      "rewards": [],
+      "image": "../../images/download.jpeg"
     }
   ],
   "pledges": [

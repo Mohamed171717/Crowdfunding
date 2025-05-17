@@ -10,27 +10,37 @@
     <title>Login</title>
 </head>
 <body>
-    <h1>Login to Crowdfunding Platform</h1>
-    <form id="login-form">
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="password" name="password" placeholder="Password" required />
-        <fieldset>
-            <legend>Select Role:</legend>
-            <label>
-                <input type="radio" name="role" value="admin" required />
-                Admin
-            </label>
-            <label>
-                <input type="radio" name="role" value="campaigner" />
-                Campaigner
-            </label>
-            <label>
-                <input type="radio" name="role" value="backer" />
-                Backer
-            </label>
-            </fieldset>
-        <button type="submit">Login</button>
-    </form>
+    <div class="login-container">
+        <!-- left side -->
+        <div class="form-section">
+            <h1>Login to <span>We</span>Fund</h1>
+            <form id="login-form">
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <fieldset>
+                    <legend>Select Role:</legend>
+                    <label>
+                        <input type="radio" name="role" value="admin" required />
+                        Admin
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="campaigner" />
+                        Campaigner
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="backer" />
+                        Backer
+                    </label>
+                </fieldset>
+                <button type="submit">Login</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="../../signUp/signup.html">Sign up</a></p>
+        </div>
+        <!-- right side -->
+        <div class="image-section">
+            <img src="../images/log.jpg" alt="Leaf Art" />
+        </div>
+    </div>
     
 </body>
 </html>
