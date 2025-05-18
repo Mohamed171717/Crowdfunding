@@ -131,6 +131,17 @@
       "isApproved": false,
       "rewards": [],
       "image": "../../images/download.jpeg"
+    },
+    {
+      "id": "226d",
+      "title": "sfdfdfjdsbfjsb",
+      "description": "fdsbfbdsjfbdsjf",
+      "goal": 230154,
+      "deadline": "2025-05-22",
+      "creatorId": 1,
+      "isApproved": false,
+      "rewards": [],
+      "image": "blob:http://127.0.0.1:5501/fb851578-1627-4bd4-bcb5-2d1352b34af4"
     }
   ],
   "pledges": [

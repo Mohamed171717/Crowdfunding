@@ -161,11 +161,11 @@ window.addEventListener("load", function() {
         const image = imageInput.files[0] ? URL.createObjectURL(imageInput.files[0]) : null;
         // const image = imageInput.files[0];
         
-        let imageBase64 = "";
+        // let imageBase64 = "";
 
-        if (image) {
-            imageBase64 = await toBase64(image);
-        }
+        // if (image) {
+        //     imageBase64 = await toBase64(image);
+        // }
 
         const campaignData = {
             title,
@@ -175,7 +175,7 @@ window.addEventListener("load", function() {
             creatorId,
             isApproved: false,
             rewards: [],
-            image: imageBase64,
+            image,
         };
         const editId = campaignForm.getAttribute("data-edit-id");
         if (editId) {
