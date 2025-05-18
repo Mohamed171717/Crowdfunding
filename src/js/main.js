@@ -68,9 +68,9 @@ async function loadAdminCampaigns() {
                 <p><strong>${campaign.title}</strong></p>
                 <p>Goal: $${campaign.goal}</p>
                 <p>Deadline: ${campaign.deadline}</p>
-                <p>Status: ${campaign.isApproved ? "Approved" : "Pending"}</p>
+                <p>Status: ${campaign.isApproved === true ? "Approved" : campaign.isApproved === false ? "Rejected" : "Pending"}</p>
                 <div>
-                    ${!campaign.isApproved ? `<button onclick="approveCampaign(${campaign.id})">Approve</button>` : ""}
+                    ${!campaign.isApproved ? `<button onclick="approveCampaign(${campaign.id})">Approve</button>` : `<button onclick="rejectCampaign(${campaign.id})">Reject</button>`}
                     <button onclick="deleteCampaign(${campaign.id})">Delete</button>
                 </div>
             </div>
@@ -129,6 +129,16 @@ async function approveCampaign(campaignId) {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isApproved: true })
+    });
+    loadAdminCampaigns();
+}
+
+// Approve a campaign
+async function rejectCampaign(campaignId) {
+    await fetch(`${API}/campaigns/${campaignId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ isApproved: false })
     });
     loadAdminCampaigns();
 }
@@ -196,10 +206,10 @@ window.addEventListener("load", function() {
         }
         
         campaignForm.reset();
+        // check if the admin approved
         loadCampaigners();
     });
-});
-
+    
     async function loadCampaigners() {
         const res = await fetch(`${API}/campaigns?creatorId=${creatorId}`);
         const campaigns = await res.json();
@@ -208,36 +218,36 @@ window.addEventListener("load", function() {
         campaigns.forEach((c) => {
             const li = document.createElement("li");
             li.innerHTML = `
-                <div class="left">
-                    <p><strong>Name:</strong> ${c.title}</p>
-                    <p><strong>Description:</strong> ${c.description}</p>
-                    <p><strong>Goal:</strong> $${c.goal}</p>
-                    <p><strong>Deadline:</strong> ${c.deadline}</p>
-                    <button class="edit-btn" onclick="editCampaign(${c.id})">Edit</button>
+            <div class="left">
+                <p><strong>Name:</strong> ${c.title}</p>
+                <p><strong>Description:</strong> ${c.description}</p>
+                <p><strong>Goal:</strong> $${c.goal}</p>
+                <p><strong>Deadline:</strong> ${c.deadline}</p>
+                <button class="edit-btn" onclick="editCampaign(${c.id})">Edit</button>
                 </div>
                 <div class="right">
-                    <img src=${c.image} alt="photo" />
-                </div>
+                <img src=${c.image} alt="photo" />
+            </div>
             `;
             campaignList.appendChild(li);
         });
     };
-
-    async function editCampaign(campaignId) {
-        const res = await fetch(`${API}/campaigns/${campaignId}`);
-        const campaign = await res.json();
-
-        // Fill form fields
-        document.getElementById("title").value = campaign.title;
-        document.getElementById("description").value = campaign.description;
-        document.getElementById("goal").value = campaign.goal;
-        document.getElementById("deadline").value = campaign.deadline;
-
-        // Store current campaign ID being edited
-        document.getElementById("campaignForm").setAttribute("data-edit-id", campaign.id);
-    }
-
     loadCampaigners();
+});
+async function editCampaign(campaignId) {
+    const res = await fetch(`${API}/campaigns/${campaignId}`);
+    const campaign = await res.json();
+
+    // Fill form fields
+    document.getElementById("title").value = campaign.title;
+    document.getElementById("description").value = campaign.description;
+    document.getElementById("goal").value = campaign.goal;
+    document.getElementById("deadline").value = campaign.deadline;
+
+    // Store current campaign ID being edited
+    document.getElementById("campaignForm").setAttribute("data-edit-id", campaign.id);
+}
+
 
 
 
