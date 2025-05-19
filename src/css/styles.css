@@ -53,7 +53,8 @@ body {
   gap: 1rem;
 }
 .login-container .form-section form input[type=email],
-.login-container .form-section form input[type=password] {
+.login-container .form-section form input[type=password],
+.login-container .form-section form input[type=text] {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -124,6 +125,109 @@ body {
     font-size: 1.5rem;
   }
   .login-container .form-section .signup-link, .login-container .form-section form fieldset {
+    font-size: 0.8rem;
+  }
+}
+.signup-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+}
+.signup-container .form-section {
+  flex: 1;
+  padding: 4rem;
+}
+.signup-container .form-section h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+.signup-container .form-section h1 span {
+  color: #267aa4;
+}
+.signup-container .form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.signup-container .form-section form input[type=email],
+.signup-container .form-section form input[type=password],
+.signup-container .form-section form input[type=text] {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.signup-container .form-section form fieldset {
+  border: none;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.signup-container .form-section form fieldset legend {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.signup-container .form-section form fieldset label {
+  display: inline-block;
+  margin-right: 1rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+}
+.signup-container .form-section form fieldset label input {
+  margin-right: 0.5rem;
+}
+.signup-container .form-section form button {
+  background-color: #267aa4;
+  color: #f0eeef;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 700;
+}
+.signup-container .form-section form button:hover {
+  background-color: #052c43;
+}
+.signup-container .form-section .link {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.8);
+}
+.signup-container .form-section .link a {
+  color: #267aa4;
+  text-decoration: none;
+}
+.signup-container .image-section {
+  flex: 2;
+}
+.signup-container .image-section img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    flex-direction: column;
+  }
+  .signup-container .form-section {
+    padding: 2rem;
+    width: 60%;
+  }
+  .signup-container .form-section h1 {
+    font-size: 1.5rem;
+  }
+  .signup-container .form-section .link, .signup-container .form-section form fieldset {
     font-size: 0.8rem;
   }
 }
@@ -398,4 +502,453 @@ body {
 }
 .campaigner-dashboard .section-box .card-grid .card p {
   margin: 5px 0;
+}
+
+.hero {
+  width: 99vw;
+  height: 99vh;
+  background-image: url("https://as2.ftcdn.net/v2/jpg/06/87/24/25/1000_F_687242507_Hv3D1a4l8dpDlGOhzX9tC1dyftfvesCC.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.hero header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+.hero header p {
+  color: #267aa4;
+  font-size: 30px;
+  font-weight: bolder;
+  margin-right: 10%;
+}
+.hero header ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.hero header ul a {
+  color: #267aa4;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: 5px;
+}
+.hero .hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.hero .heroDiv {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 50%;
+  height: 300px;
+  text-align: center;
+}
+.hero .heroDiv h1 {
+  display: inline-block;
+  color: #267aa4;
+  font-size: 50px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+.hero .heroDiv h1 p {
+  display: inline-block;
+  color: #f0eeef;
+  font-size: 50px;
+  font-weight: bolder;
+}
+.hero .heroDiv p {
+  color: #f0eeef;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.searchDiv {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+.searchDiv input {
+  padding: 15px 10px;
+  width: 40%;
+  border: 1px solid #267aa4;
+  color: #052c43;
+  border-radius: 10px;
+}
+
+.compains {
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 15px 10px;
+  padding: 10px 5px;
+}
+.compains .card {
+  width: 32%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgb(223, 217, 217);
+}
+.compains .card img {
+  width: 100%;
+}
+.compains .card h2 {
+  margin-bottom: 12px;
+  color: #267aa4;
+}
+.compains .card div {
+  margin: 5px 10px;
+}
+.compains .card div pre {
+  color: gray;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+.compains .card div p {
+  font-size: 17px;
+  font-weight: bolder;
+  margin-bottom: 6px;
+  color: gray;
+}
+.compains .card div button {
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  color: #267aa4;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #267aa4;
+  font-size: 18px;
+  width: 100%;
+}
+.compains .card div button:hover {
+  background-color: #267aa4;
+  color: #f0eeef;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #267aa4;
+  padding: 15px 10px;
+  color: #f0eeef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+footer .footer-sec1 {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  gap: 10px;
+  width: 60%;
+  margin-left: 20px;
+}
+footer .footer-sec1 div {
+  line-height: 25px;
+}
+footer .footer-sec1 div p {
+  margin-left: 7px;
+  font-size: 12px;
+}
+footer .footer-sec2 {
+  width: 35%;
+}
+footer .footer-sec2 h4 {
+  margin-bottom: 12px;
+  direction: rtl;
+  padding-right: 20px;
+}
+footer .footer-sec2 pre {
+  line-height: 20px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+@media all and (max-width: 767px) {
+  .compains .card {
+    width: 45vw;
+  }
+}
+@media all and (min-width: 967px) {
+  .compains .card {
+    width: 22vw;
+  }
+}
+.backerPage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  align-items: normal;
+  min-height: 100vh;
+  background-color: #e4e4e4;
+}
+.backerPage .backerPage-content {
+  flex: 1;
+  padding: 40px;
+}
+.backerPage .backerPage-content header {
+  margin-bottom: 20px;
+}
+.backerPage .backerPage-content header h1 {
+  color: rgba(0, 0, 0, 0.8);
+}
+.backerPage .backerPage-content .section-box {
+  margin-bottom: 40px;
+}
+.backerPage .backerPage-content .section-box h2 {
+  margin-bottom: 15px;
+  color: #052c43;
+}
+.backerPage .backerPage-content .section-box .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 20px;
+}
+.backerPage .backerPage-content .section-box .card-grid .card {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+  flex: 1;
+  flex-direction: column;
+  background-color: #f0eeef;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.backerPage .backerPage-content .section-box .card-grid .card img {
+  width: 100%;
+}
+.backerPage .backerPage-content .section-box .card-grid .card div {
+  margin: 0 0 15px 20px;
+}
+.backerPage .backerPage-content .section-box .card-grid .card div pre {
+  margin-bottom: 15px;
+}
+.backerPage .backerPage-content .section-box .card-grid .card div p {
+  margin: 10px 0;
+  font-size: 19px;
+  font-weight: bolder;
+}
+.backerPage .backerPage-content .section-box .card-grid .card div button {
+  background-color: #267aa4;
+  color: #f0eeef;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 8px 20px;
+  margin-top: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.backerPage .backerPage-content .section-box .card-grid .campains-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  gap: 100px;
+  background-color: #f0eeef;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.backerPage .backerPage-content .section-box .card-grid .campains-card .left {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+  flex: 1;
+  flex-direction: column;
+  padding: 15px;
+}
+.backerPage .backerPage-content .section-box .card-grid .campains-card .left p {
+  margin: 5px 0;
+}
+.backerPage .backerPage-content .section-box .card-grid .campains-card .left button {
+  background-color: #267aa4;
+  color: #f0eeef;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 8px 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.backerPage .backerPage-content .section-box .card-grid .campains-card .right {
+  flex: 1;
+}
+.backerPage .backerPage-content .section-box .card-grid .campains-card .right img {
+  width: 70%;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+  .backerPage .backerPage-content {
+    padding: 40px 20px;
+  }
+  .backerPage .backerPage-content .section-box .card-grid .card {
+    display: flex;
+    flex-direction: row;
+  }
+  .backerPage .backerPage-content .section-box .card-grid .card img {
+    width: 50%;
+    height: 100%;
+  }
+  .backerPage .backerPage-content .section-box .card-grid .card div {
+    width: 50%;
+  }
+  .section-box .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .campains-card .right img {
+    margin: 20px;
+  }
+}
+.title-for-campain {
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #267aa4;
+  display: inline-block;
+}
+
+.backButton {
+  position: fixed;
+  width: -moz-max-content;
+  width: max-content;
+  top: 5%;
+  left: 85%;
+  border: none;
+  color: #267aa4;
+}
+.backButton:hover {
+  background-color: #267aa4;
+  color: #f0eeef;
+  border-radius: 10px;
+  padding: 10px 5px;
+}
+
+.compaindetails {
+  margin-left: 10px;
+  margin-top: 3%;
+  width: 97vw;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 65vh;
+  background-color: #f0eeef;
+  box-shadow: 2px 2px 10px rgb(192, 185, 185);
+  margin: 15px 10% 0px 5px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 20px;
+}
+.compaindetails .img-sec {
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+}
+.compaindetails .img-sec img {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100%;
+  height: 90%;
+  border-radius: 10px;
+}
+.compaindetails .div-sec {
+  margin-top: 2%;
+  width: 27%;
+  padding: 20px 0px 20px 5px;
+}
+.compaindetails .div-sec p {
+  color: #052c43;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+.compaindetails .div-sec p span {
+  color: black;
+  font-size: 17px;
+  font-weight: 500;
+}
+.compaindetails .rewardsec {
+  margin-top: 5%;
+}
+.compaindetails .rewardsec h2 {
+  margin-bottom: 10px;
+}
+.compaindetails .rewardsec h4 {
+  margin-left: 10px;
+  margin-bottom: 7px;
+  font-size: 17px;
+  font-weight: 300;
+}
+.compaindetails .rewardsec pre {
+  margin-left: 10px;
+  margin-bottom: 7px;
+}
+.compaindetails .rewardsec p {
+  margin-left: 10px;
+  margin-bottom: 7px;
+}
+
+.amountsec {
+  position: absolute;
+  bottom: 27%;
+  left: 60%;
+  display: grid;
+  width: 30%;
+  height: -moz-min-content;
+  height: min-content;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.amountsec label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #267aa4;
+  margin-bottom: 7px;
+}
+.amountsec input {
+  border-radius: 5px;
+  padding: 8px;
+  border: none;
+  color: #052c43;
+}
+.amountsec select {
+  padding: 8px;
+  margin-bottom: 7px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: none;
+  color: #052c43;
+}
+.amountsec .confirm {
+  margin-top: 15px;
+  background-color: #267aa4;
+  color: #f0eeef;
+  font-size: 15px;
+  width: -moz-min-content;
+  width: min-content;
+  align-self: center;
+}
+.amountsec .confirm:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */

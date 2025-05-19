@@ -1,15 +1,14 @@
 
 
-let form = document.getElementById("signup-form");
+let form = document.querySelector(".form-section");
 let username = document.querySelector('#name');
   let email = document.querySelector('#email');
   let pass = document.querySelector('#pass');
-  let role = document.querySelector('#type');
+  let role = document.querySelector('.type');
   let link=document.querySelector('.link');
   let invalidName=document.querySelector(".invalidName");
   let invalidEmail=document.querySelector(".invalidEmail");
   let invalidpass=document.querySelector(".invalidpass");
-
 username.addEventListener('blur',function(e){
 if (!isNameValid(this.value)){
 invalidName.style.display="block";
@@ -40,7 +39,6 @@ this.style.setProperty("border", "1px solid red");
 });
 form.addEventListener('submit', function (e) {
   e.preventDefault(); 
-
   signUp(username.value, email.value, pass.value, role.value);
 });
 
@@ -67,9 +65,12 @@ async function signUp(name, email, password, role) {
       // },
       body: JSON.stringify({
         name,
+          role,
+          isActive:false,
+        isApprovedRole: false,
         email,
         password,
-        role,
+        
       })
     });
 

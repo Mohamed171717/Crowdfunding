@@ -26,6 +26,14 @@
       "isApprovedRole": true,
       "email": "ali@gmail.com",
       "password": "789"
+    },
+    {
+      "id": "f263",
+      "name": "yughujg",
+      "email": "alshima276@gmail.com",
+      "password": "123456432",
+      "role": "campaigner",
+      "isActive": false
     }
   ],
   "campaigns": [
@@ -35,8 +43,8 @@
       "creatorId": 1,
       "goal": 3500,
       "deadline": "2025-01-02",
-      "isApproved": false,
-      "image": "../../images/download.jpeg",
+      "isApproved": true,
+      "image": "/Crowdfunding/src/images/flood.png",
       "rewards": [],
       "description": "hello my name is moahmed"
     },
@@ -47,7 +55,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "../../images/download.jpeg",
+      "image":"/Crowdfunding/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -63,7 +71,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "../../images/download.jpeg",
+      "image": "/Crowdfunding/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -79,7 +87,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "../../images/download.jpeg",
+      "image": "/Crowdfunding/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -96,7 +104,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "../../images/download.jpeg",
+      "image": "/Crowdfunding/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -111,8 +119,8 @@
       "creatorId": 1,
       "goal": 4000,
       "deadline": "2024-12-31",
-      "isApproved": false,
-      "image": "../../images/download.jpeg",
+      "isApproved": true,
+      "image": "/Crowdfunding/src/images/Soporo.png",
       "rewards": [
         {
           "id": 1,
@@ -128,9 +136,15 @@
       "goal": 2000,
       "deadline": "2025-05-22",
       "creatorId": 1,
-      "isApproved": false,
-      "rewards": [],
-      "image": "../../images/download.jpeg"
+      "isApproved": true,
+      "rewards": [
+        {
+          "id": 1,
+          "title": "Bird",
+          "amount": 100
+        }
+      ],
+      "image": "/Crowdfunding/src/images/Tsunami.png"
     },
     {
       "id": "226d",
@@ -141,7 +155,7 @@
       "creatorId": 1,
       "isApproved": false,
       "rewards": [],
-      "image": "blob:http://127.0.0.1:5501/fb851578-1627-4bd4-bcb5-2d1352b34af4"
+      "image": "/Crowdfunding/src/images/flood.png"
     },
     {
       "id": "193e",
@@ -152,7 +166,7 @@
       "creatorId": 1,
       "isApproved": false,
       "rewards": [],
-      "image": "blob:http://127.0.0.1:5501/baf45dd3-d800-4b8c-aefd-6d1d24f5d55c"
+      "image":"/Crowdfunding/src/images/flood.png"
     }
   ],
   "pledges": [

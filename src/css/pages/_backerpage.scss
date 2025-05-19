@@ -1,0 +1,171 @@
+.backerPage {
+    @include flex;
+    align-items: normal;
+    min-height: 100vh;
+    background-color: #e4e4e4;
+
+    // .sidebar {
+    //     width: 240px;
+    //     background-color: $primary;
+    //     color: $third;
+    //     padding: 30px;
+
+    //     h2 {
+    //         font-size: 1.5rem;
+    //     }
+
+    //     ul {
+    //         li {
+    //             margin: 15px 0;
+    //             padding: 15px;
+    //             font-size: 1rem;
+    //             transition: .3s;
+    //             font-weight: $fw-700;
+    //             cursor: pointer;
+    //             &:hover.logout {
+    //                 color: $bgColor1;
+    //             }
+    //             &:hover {
+    //                 @include active;
+    //             }
+    //         }
+    //         .logout {
+    //             color: $third;
+    //         }
+    //     }
+    // }
+
+    .backerPage-content {
+        flex: 1;
+        padding: 40px;
+
+        header {
+            margin-bottom: 20px;
+            h1 {
+                color: $shadow;
+            }
+        }
+
+        .section-box {
+            margin-bottom: 40px;
+
+            h2 {
+                margin-bottom: 15px;
+                color: $second;
+            }
+            
+            .card-grid {
+            
+                @include grid(20px, repeat(auto-fit, minmax(450px, 1fr)));
+                .card {
+                    @include flex(center, start);
+                    flex: 1;
+                    flex-direction: column;
+                    background-color: $third;
+                    border-radius: $b-radius;
+                    // padding: 15px;
+                    box-shadow: $b-shadow;
+                    img{
+                        width: 100%;
+                    }
+                    div{
+                        // padding: 15px;
+                        margin: 0 0 15px 20px;
+
+                        pre{
+                            margin-bottom: 15px;
+                        }
+                        p{
+                            margin: 10px 0;
+                            font-size: 19px;
+                            font-weight: bolder
+                        }
+                         button {
+                        @include button2;
+                        padding: 8px 20px;
+                        margin-top: 10px;
+                        width: fit-content;
+                    }
+                    }
+                   
+                   
+                }
+                .campains-card {
+                    @include flex;
+                    gap: 100px;
+                    background-color: $third;
+                    border-radius: $b-radius;
+                    box-shadow: $b-shadow;
+
+                    .left {
+                        @include flex(center, start);
+                        flex: 1;
+                        flex-direction: column;
+                        padding: 15px;
+                        p {
+                            margin: 5px 0;
+                        }
+                        button {
+                            @include button2;
+                            padding: 8px 20px;
+                            width: fit-content;
+                        }
+                    }
+                    .right {
+                        flex: 1;
+                        img {
+                            width: 70%;
+                            margin: 20px 0;
+                            border-radius: $b-radius;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 767px) {
+    // .sidebar {
+    //     display: none;
+    // }
+    .backerPage {
+    .backerPage-content {
+        padding: 40px 20px;
+
+        .section-box{
+            .card-grid{
+                 .card {
+        display: flex;
+        flex-direction: row;
+        img{
+            width: 50%;
+            height: 100%;
+        }
+        div{
+            width: 50%;
+        }
+            }
+        }
+    }
+   
+    }}
+    .section-box .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .campains-card .right img {
+        margin: 20px;
+    }
+
+}
+
+// @media (max-width: 768px) {
+//     .admin-dashboard .sidebar {
+//         width: 218px;
+//         background-color: #267aa4;
+//         color: #f0eeef;
+//         padding: 30px;
+//     }
+// }
