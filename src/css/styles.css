@@ -739,6 +739,27 @@ footer .footer-sec2 pre {
 .backerPage .backerPage-content .section-box h2 {
   margin-bottom: 15px;
   color: #052c43;
+  font-size: 25px;
+  width: 30%;
+}
+.backerPage .backerPage-content .section-box .check-box {
+  background-color: #f0eeef;
+  box-shadow: 2px 2px 10px rgb(172, 169, 169);
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 7px;
+}
+.backerPage .backerPage-content .section-box .check-box h3 {
+  color: #052c43;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 5px;
+}
+.backerPage .backerPage-content .section-box .check-box label {
+  margin-right: 5px;
+  font-size: 18px;
+  color: #267aa4;
+  font-weight: bolder;
 }
 .backerPage .backerPage-content .section-box .card-grid {
   display: grid;
@@ -794,38 +815,26 @@ footer .footer-sec2 pre {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
-.backerPage .backerPage-content .section-box .card-grid .campains-card .left {
+.backerPage .backerPage-content .section-box #pledges-container {
   display: flex;
-  justify-content: center;
-  align-items: start;
+  justify-content: space-between;
+  align-items: center;
   gap: 20px;
-  flex: 1;
-  flex-direction: column;
-  padding: 15px;
 }
-.backerPage .backerPage-content .section-box .card-grid .campains-card .left p {
-  margin: 5px 0;
+.backerPage .backerPage-content .section-box #pledges-container div {
+  display: inline-block;
+  text-align: left;
+  padding: 0;
+  width: 32%;
+  background-color: #f0eeef;
 }
-.backerPage .backerPage-content .section-box .card-grid .campains-card .left button {
-  background-color: #267aa4;
-  color: #f0eeef;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-  padding: 8px 20px;
-  width: -moz-fit-content;
-  width: fit-content;
+.backerPage .backerPage-content .section-box #pledges-container div p {
+  width: 12rem;
+  color: #267aa4;
 }
-.backerPage .backerPage-content .section-box .card-grid .campains-card .right {
-  flex: 1;
-}
-.backerPage .backerPage-content .section-box .card-grid .campains-card .right img {
-  width: 70%;
-  margin: 20px 0;
-  border-radius: 8px;
+.backerPage .backerPage-content .section-box #pledges-container div p span {
+  color: black;
+  font-weight: 200;
 }
 
 @media (max-width: 767px) {

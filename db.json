@@ -59,6 +59,7 @@
       "id": "544441148",
       "title": "Smart Watch",
       "creatorId": 132,
+      "category":"Health",
       "goal": 3500,
       "deadline": "2025-01-02",
       "isApproved": true,
@@ -70,10 +71,11 @@
       "id": "748791845",
       "title": "pc watcher",
       "creatorId": 1,
+      "category":"Education",
       "goal": 6500,
       "deadline": "2025-05-22",
-      "isApproved": false,
-      "image":"/Crowdfunding/src/images/flood.png",
+      "isApproved": true,
+      "image": "/Crowdfunding/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -87,9 +89,10 @@
       "id": "fg445d",
       "title": "pc reader",
       "creatorId": 1,
+      "category":"Poor People",
       "goal": 4000,
       "deadline": "2024-12-31",
-      "isApproved": false,
+      "isApproved": true,
       "image": "/Crowdfunding/src/images/flood.png",
       "rewards": [
         {
@@ -104,8 +107,9 @@
       "title": "pc reader",
       "creatorId": 1,
       "goal": 4000,
+      "category":"Health",
       "deadline": "2024-12-31",
-      "isApproved": false,
+      "isApproved": true,
       "image": "/Crowdfunding/src/images/flood.png",
       "rewards": [
         {
@@ -120,9 +124,10 @@
       "title": "pc reader",
       "description": "we want to make our pc reader",
       "creatorId": 1,
+      "category":"Poor People",
       "goal": 4000,
       "deadline": "2024-12-31",
-      "isApproved": false,
+      "isApproved": true,
       "image": "/Crowdfunding/src/images/flood.png",
       "rewards": [
         {
@@ -137,6 +142,7 @@
       "title": "pc reader",
       "creatorId": 1,
       "goal": 4000,
+      "category":"Education",
       "deadline": "2024-12-31",
       "isApproved": true,
       "image": "/Crowdfunding/src/images/Soporo.png",
@@ -153,6 +159,7 @@
       "title": "smart phone watcher",
       "description": "i will help people to be good at smart phone",
       "goal": 2000,
+      "category":"Health",
       "deadline": "2025-05-22",
       "creatorId": 1,
       "isApproved": true,
@@ -164,36 +171,21 @@
         }
       ],
       "image": "/Crowdfunding/src/images/Tsunami.png"
-    },
-    {
-      "id": "405",
-      "title": "mmmmmmm",
-      "description": "sdsmf,d,dmf,dm",
-      "goal": 8987,
-      "deadline": "2025-05-23",
-      "creatorId": 1,
-      "isApproved": false,
-      "rewards": [],
-      "image": "/Crowdfunding/src/images/flood.png"
-    },
-    {
-      "id": "193e",
-      "title": "mmmmmm",
-      "description": "aaaaaaaaaaaaa",
-      "goal": 456,
-      "deadline": "2025-05-22",
-      "creatorId": 1,
-      "isApproved": false,
-      "rewards": [],
-      "image":"/Crowdfunding/src/images/flood.png"
     }
   ],
   "pledges": [
     {
       "id": "14454",
       "campaignId": "718",
-      "userId": 1,
+      "userId": 3,
       "amount": 100,
+      "rewardId": 1
+    },
+    {
+      "id": "14454",
+      "campaignId": "718",
+      "userId": 3,
+      "amount": 300,
       "rewardId": 1
     },
     {
