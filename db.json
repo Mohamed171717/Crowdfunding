@@ -40,7 +40,7 @@
       "id": "3",
       "name": "ali",
       "role": "backer",
-      "isActive": true,
+      "isActive": false,
       "isApprovedRole": false,
       "email": "ali@gmail.com",
       "password": "789"
@@ -52,6 +52,15 @@
       "password": "123456432",
       "role": "campaigner",
       "isActive": false
+    },
+    {
+      "id": "0bb8",
+      "name": "gada",
+      "role": "campaigner",
+      "isActive": true,
+      "isApprovedRole": true,
+      "email": "gada@gmail.com",
+      "password": "9876543210"
     }
   ],
   "campaigns": [
@@ -73,7 +82,7 @@
       "goal": 6500,
       "deadline": "2025-05-22",
       "isApproved": false,
-      "image":"/src/images/flood.png",
+      "image": "/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -185,21 +194,23 @@
       "creatorId": 1,
       "isApproved": false,
       "rewards": [],
-      "image":"/src/images/flood.png"
+      "image": "/src/images/flood.png"
     }
   ],
   "pledges": [
     {
       "id": "14454",
       "campaignId": "718",
-      "userId": 1,
+      "userId": 3,
+      "username": "ali",
       "amount": 100,
       "rewardId": 1
     },
     {
       "id": "223443",
       "campaignId": "718",
-      "userId": 1,
+      "userId": 3,
+      "username": "ali",
       "amount": 100,
       "rewardId": 1
     }

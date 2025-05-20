@@ -1,4 +1,64 @@
 
 
+.home-header {
+    width: 70%;
+    margin: 0 auto;
+    @include flex;
+    padding: 25px 20px;
+    h1{
+        color: $second;
+        font-size: 30px;
+        font-weight: bolder;
+        span {
+            color: $primary;
+        }
+    }
+    ul{
+        @include flex(center, center);
+        a{
+            @include button2;
+            font-size: 15px;
+            font-weight: $fw-700;
+            transition: $transition;
+            &:hover{
+                background-color: $second;
+            }
+        }
+    }
+    .links {
+        color: $shadow;
+        font-weight: $fw-700;
+        font-size: 20px;
+        margin: 0 10px;
+        transition: $transition;
+        &:hover{
+            color: $primary;
+        }
+    }
+}
 
+@media (max-width: 1024px) {
+    .home-header {
+        width: 80%;
+        .links {
+            font-size: 17px;
+        }
+    }
+};
+
+@media (max-width: 767px) {
+    .home-header {
+        flex-direction: column;
+        gap: 30px;
+        width: 90%;
+        .links {
+            font-size: 13px;
+        }
+        nav {
+        a {
+            padding: 10px 20px;
+        }
+        }
+    }
+};
 

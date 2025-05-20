@@ -1,41 +1,6 @@
 
 
-header{
-    width: 70%;
-    margin: 0 auto;
-    @include flex;
-    padding: 25px 20px;
-    h1{
-      color: $second;
-      font-size: 30px;
-      font-weight: bolder;
-      span {
-        color: $primary;
-      }
-    }
-    ul{
-        @include flex(center, center);
-        a{
-          @include button2;
-          font-size: 15px;
-          font-weight: $fw-700;
-          transition: $transition;
-          &:hover{
-            background-color: $second;
-          }
-        }
-    }
-    .links {
-      color: $shadow;
-      font-weight: $fw-700;
-      font-size: 20px;
-      margin: 0 10px;
-      transition: $transition;
-      &:hover{
-        color: $primary;
-      }
-    }
-}
+
 
 .hero{
     width: 100%;
@@ -131,49 +96,10 @@ header{
               }
             }
         }
-    }
-footer{
-    background-color:$primary;
-    padding: 15px 10px;
-    color: $third;
-    @include flex();
-    .footer-sec1{
-        @include flex($gap:10px,$justify:none);
-        width: 60%;
-        margin-left: 20px;
-        div{
-            line-height: 25px;
-            p{
-              margin-left: 7px;
-                font-size: 12px;
-            }
-        }
-    }
-
-.footer-sec2{
-    width: 35%;
-    h4{
-        margin-bottom: 12px;
-        direction: rtl;
-        padding-right: 20px;
-    }
-  }
 }
 
+
 @media (max-width: 767px) {
-  header {
-    flex-direction: column;
-    gap: 30px;
-    width: 90%;
-    .links {
-      font-size: 15px;
-    }
-    nav {
-      a {
-        padding: 10px 20px;
-      }
-    }
-  }
   .hero .heroDiv h2 {
     font-size: 25px;
     p {

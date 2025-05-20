@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="../../images/panda.ico">
     <script defer src="../main.js"></script>
     <title>Admin</title>
 </head>
 <body>
+    <!-- header -->
+    <header class="home-header">
+        <h1><span>We</span>Fund</h1>
+        <div>
+            <a class="links" href="../../../index.html">Home</a>
+            <a class="links" href="#campagins">Campaigns</a>
+            <a class="links" href="#pledge">Pledges</a>
+        </div>
+    </header>
+    <!-- content -->
     <div class="admin-dashboard">
         <aside class="sidebar">
         </aside>
@@ -15,14 +26,14 @@
             <h2>Dashboard</h2>
             <ul>
                 <a href="#users"><li class="list active">Users</li></a>
-                <a href="#campains"><li class="list">Campaigns</li></a>
+                <a href="#campagins"><li class="list">Campaigns</li></a>
                 <a href="#pledge"><li class="list">Pledges</li></a>
                 <a href="../login.html"><li class="logout list">Logout</li></a>
             </ul>
         </aside>
 
         <main class="main-content">
-            <header>
+            <header class="admin-header">
                 <h1>Admin Panel</h1>
             </header>
 
@@ -31,7 +42,7 @@
                 <div id="users-container" class="card-grid"></div>
             </section>
 
-            <section class="section-box" id="campaigns">
+            <section class="section-box" id="campagins">
                 <h2>Campaigns</h2>
                 <div id="campaigns-container" class="card-grid"></div>
             </section>
@@ -42,6 +53,67 @@
             </section>
         </main>
     </div>
-
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="box">
+                <h3>WeFund</h3>
+                <ul class="social">
+                    <li>
+                        <a href="#" class="facebook">
+                            <i class="fab fa-facebook-f">🍇</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter">
+                            <i class="fab fa-twitter">🧀</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="linkedin">
+                            <i class="fab fa-linkedin-in">🍔</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="youtube">
+                            <i class="fab fa-youtube">🍕</i>
+                        </a>
+                    </li>
+                </ul>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, voluptas!</p>
+            </div>
+            <div class="box">
+                <div class="links">
+                    <ul>
+                        <li><a href="#">important link 1</a></li>
+                        <li><a href="#">important link 2</a></li>
+                        <li><a href="#">important link 3</a></li>
+                        <li><a href="#">important link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box">
+                <div class="line">
+                    <i class="fas fa-map-marked-alt fa-fw"></i>
+                    <div class="info">egypt, cairo, Lorem ipsum dolor sit amet.</div>
+                </div>
+                <div class="line">
+                    <i class="fas fa-clock fa-fw"></i>
+                    <div class="info">egypt, cairo, Lorem ipsum dolor sit amet.</div>
+                </div>
+                <div class="line">
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">egypt, cairo, Lorem ipsum dolor sit amet.</div>
+                </div>
+            </div>
+            <div class="box footer-gallery">
+                <img src="../../images/foot1.gif" alt="photo">
+                <img src="../../images/foot2.gif" alt="photo">
+                <img src="../../images/foot3.gif" alt="photo">
+                <img src="../../images/foot4.gif" alt="photo">
+            </div>
+        </div>
+        <p class="copyright">made with love by <span>We</span>Fund</p>
+    </div>
 </body>
 </html>
