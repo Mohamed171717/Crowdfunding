@@ -58,27 +58,21 @@ async function signUp(name, email, password, role) {
       alert('this userName already exist');
       return;
     }
-    const response = await fetch('http://localhost:3000/users', {
+    await fetch('http://localhost:3000/users', {
       method: 'POST',
-      // headers: {
-      //   'Content-Type': 'application/json'
-      // },
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         name,
           role,
-          isActive:false,
+          isActive: true,
         isApprovedRole: false,
         email,
         password,
         
       })
     });
-
-    // if (!response.ok) {
-    //   console.log("Response not OK");
-    //   return;
-    // }
-    // const data = await response.text;
 
   } catch (e) {
     console.error("Error in fetch:", e);

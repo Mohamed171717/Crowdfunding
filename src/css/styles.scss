@@ -13,12 +13,8 @@
 
 
 // layout/
-// @import '/src/css/layout/header';
-// @import '/src/css/layout/hero';
-@import 'layout/services';
-// @import '/src/css/layout/campainer.scss';
-@import 'layout/about';
-// @import '/src/css/layout/footer.scss';
+@import './layout/header';
+@import './layout/footer';
 
 
 // components/
@@ -26,7 +22,6 @@
 
 
 // pages/
-@import 'pages/home';
 @import 'pages/login';
 @import 'pages/_signup.scss';
 @import 'pages/adminPage';

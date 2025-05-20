@@ -1,0 +1,114 @@
+
+
+.footer {
+    background-color: $primary;
+    padding: 70px 0 0;
+    .container {
+        width: 70%;
+        margin: 0 auto;
+        @include grid(40px, repeat(auto-fill, minmax(300px, 1fr)));
+        .box {
+            h3 {
+                color: $third;
+                font-size: 50px;
+                margin: 0 0 20px;
+                font-weight: 900;
+            }
+            .social {
+                display: flex;
+                li {
+                    margin-right: 20px;
+                    a {
+                        background-color: $third;
+                        color: $third;
+                        width: 50px;
+                        height: 50px;
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 20px;
+                        transition: $transition;
+                    }
+                }
+
+            }
+            .text {
+                line-height: 2;
+                color: $third;
+                font-weight: 900;
+            }
+            .links {
+                li {
+                    padding: 30px 0;
+                    transition: $transition;
+                    a {
+                        color: $third;
+                        transition: $transition;
+                        font-weight: 900;
+                    }
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $third;
+                    }
+                    &:hover {
+                        padding-left: 15px;
+                    }
+                    &:hover a {
+                        color: white;
+                    }
+                }
+            }
+            .line {
+                display: flex;
+                align-items: center;
+                color: $third;
+                margin-bottom: 30px;
+                i {
+                    color: $third;
+                    font-size: 25px;
+                    margin-right: 10px;
+                }
+                .info {
+                    flex: 1;
+                    font-weight: 900;
+                    line-height: 1.8;
+                }
+            }
+        }
+    }
+    .footer-gallery img {
+        width: 110px;
+        border: 3px solid $third;
+        margin: 5px;
+    }
+    .copyright {
+        padding: 25px 0;
+        margin: 50px 0 0;
+        color: $third;
+        border-top: 1px solid $third;
+        text-align: center;
+        font-weight: 900;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    .footer {
+        .container {
+            width: 95%;
+        }
+        text-align: center;
+        .box {
+            .social {
+                display: flex;
+                justify-content: center;
+            }
+            .line {
+                flex-direction: column;
+            }
+            .line i {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
