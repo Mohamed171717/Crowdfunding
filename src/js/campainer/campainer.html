@@ -11,7 +11,7 @@
 
     <div class="campaigner-dashboard">
         <header>
-            <h1>Welcome, Campaigner</h1>
+            <h1 id="welcome"></h1>
         </header>
 
         <section class="create-campaign">
@@ -30,6 +30,20 @@
             <h2>Your Campaigns</h2>
             <ul id="campaignList"></ul>
         </section>
+
+        <div id="editModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeEditedModel()">❌</span>
+                <form id="editForm">
+                    <h2>Edit Campaign</h2>
+                    <input type="text" id="edit-title" placeholder="Title" required />
+                    <textarea id="edit-description" placeholder="Description" required></textarea>
+                    <input type="number" id="edit-goal" placeholder="Goal" required />
+                    <input type="date" id="edit-deadline" required />
+                    <button type="submit">Update Campaign</button>
+                </form>
+            </div>
+        </div>
 
         <section class="section-box" id="pledge">
                 <h2>Pledges</h2>
