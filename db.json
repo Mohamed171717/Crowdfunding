@@ -62,7 +62,7 @@
       "goal": 3500,
       "deadline": "2025-01-02",
       "isApproved": true,
-      "image": "/Crowdfunding/src/images/flood.png",
+      "image": "/src/images/flood.png",
       "rewards": [],
       "description": "hello my name is moahmed"
     },
@@ -73,7 +73,7 @@
       "goal": 6500,
       "deadline": "2025-05-22",
       "isApproved": false,
-      "image":"/Crowdfunding/src/images/flood.png",
+      "image":"/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -90,7 +90,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "/Crowdfunding/src/images/flood.png",
+      "image": "/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -106,7 +106,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "/Crowdfunding/src/images/flood.png",
+      "image": "/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -123,7 +123,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "/Crowdfunding/src/images/flood.png",
+      "image": "/src/images/flood.png",
       "rewards": [
         {
           "id": 1,
@@ -139,7 +139,7 @@
       "goal": 4000,
       "deadline": "2024-12-31",
       "isApproved": true,
-      "image": "/Crowdfunding/src/images/Soporo.png",
+      "image": "/src/images/Soporo.png",
       "rewards": [
         {
           "id": 1,
@@ -163,7 +163,7 @@
           "amount": 100
         }
       ],
-      "image": "/Crowdfunding/src/images/Tsunami.png"
+      "image": "/src/images/Tsunami.png"
     },
     {
       "id": "405",
@@ -174,7 +174,7 @@
       "creatorId": 1,
       "isApproved": false,
       "rewards": [],
-      "image": "/Crowdfunding/src/images/flood.png"
+      "image": "./src/images/flood.png"
     },
     {
       "id": "193e",
@@ -185,7 +185,7 @@
       "creatorId": 1,
       "isApproved": false,
       "rewards": [],
-      "image":"/Crowdfunding/src/images/flood.png"
+      "image":"/src/images/flood.png"
     }
   ],
   "pledges": [

@@ -1,35 +1,49 @@
+
+
+header{
+    width: 70%;
+    margin: 0 auto;
+    @include flex;
+    padding: 25px 20px;
+    h1{
+      color: $second;
+      font-size: 30px;
+      font-weight: bolder;
+      span {
+        color: $primary;
+      }
+    }
+    ul{
+        @include flex(center, center);
+        a{
+          @include button2;
+          font-size: 15px;
+          font-weight: $fw-700;
+          transition: $transition;
+          &:hover{
+            background-color: $second;
+          }
+        }
+    }
+    .links {
+      color: $shadow;
+      font-weight: $fw-700;
+      font-size: 20px;
+      margin: 0 10px;
+      transition: $transition;
+      &:hover{
+        color: $primary;
+      }
+    }
+}
+
 .hero{
-    width: 99vw;
-    height: 99vh;
+    width: 100%;
+    height: 100vh;
     background-image: url("https://as2.ftcdn.net/v2/jpg/06/87/24/25/1000_F_687242507_Hv3D1a4l8dpDlGOhzX9tC1dyftfvesCC.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    header{
-        display: flex; 
-        justify-content: space-between;
-        padding: 15px 20px;
-        p{
-            color: $primary;
-            font-size: 30px;
-            font-weight: bolder;
-            margin-right: 10%;
-        }
-        
-        ul{
-            list-style: none;
-            display: flex; 
-            justify-content: center;
-            
-                a{
-                color: $primary;
-                font-size: 20px;
-                font-weight: bolder;
-                // margin-right: 20px;
-                margin-left: 5px;
-                }
-        }
-    }
     .hero-overlay{
       background: rgba(0,0,0,.5);
       position: absolute;
@@ -40,21 +54,14 @@
       z-index: 1;
     }
     .heroDiv{
-      // input{
-      //       background-color: transparent;
-      //       border: 1px solid $second;
-      //       width: 50%;
-      //       padding-left: 10px;
-      //   }
       position: absolute;
-      top: 30%;
-      left: 30%;
-      width: 50%;
-      height:300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      h1{
+      h2{
         display: inline-block;
-        color:$primary;
+        color: $light-primary;
         font-size: 50px;
         font-weight: 900;
         margin-bottom: 30px;
@@ -71,35 +78,30 @@
         font-size: 20px;
       }
     }
-
-    
 }
+
 .searchDiv{
   margin-top: 20px;
   width: 100%;
   text-align: center;
-input{
-  padding: 15px 10px;
-  width: 40%;
-  border: 1px solid $primary;
-  color: $second;
-  border-radius: 10px;
-}
+  input{
+    padding: 15px 10px;
+    width: 40%;
+    border: 1px solid $primary;
+    color: $second;
+    border-radius: 10px;
+  }
 }
 
 .compains{
-    // background-color: red;
-        width:98%;
-        // display: flex;
-        @include flex($gap:10px);
-        flex-wrap: wrap;
-        margin: 15px 10px;
-        // gap: 10px;
-        padding: 10px 5px;
+        width:70%;
+        @include grid(30px, repeat(auto-fit, minmax(400px, 1fr)));
+        margin: 30px auto;
         .card{
-            width:32% ;
-            border-radius: 10px;
-            box-shadow: 1px 1px 10px rgb(223, 217, 217);
+            background-color: white;
+            padding: 20px;
+            border-radius: $b-radius;
+            box-shadow: $b-shadow;
             img{
                 width:100%;
             }
@@ -108,35 +110,25 @@ input{
                 color: $primary;
             }
 
-            div{
-                margin:5px 10px;
-
-              pre{
-                color: gray;
-                    font-size: 13px;
-                    font-weight: bold;
-                    margin-bottom: 7px;
-                }
-            p{
+            div {
+              margin:5px 10px;
+              p {
                 font-size: 17px;
                 font-weight: bolder;
                 margin-bottom: 6px;
-                color: gray;
-                // font-family: ;
-            }
-            button{
-                @include button($bg:transparent,$radius:10px,$padding:15px);
-                border: 1px solid $primary;
+                color: rgb(83, 83, 83);
+              }
+              button{
+                @include button2();
                 font-size: 18px;
-                 width: 100%;
-
+                margin-top: 10px;
+                width: 100%;
                 &:hover{
-                    background-color: $primary;
+                    background-color: $second;
                     color: $third;
                     cursor: pointer;
                 }
-                
-            }
+              }
             }
         }
     }
@@ -157,35 +149,48 @@ footer{
             }
         }
     }
-     .footer-sec2{
-        width: 35%;
-        h4{
-            margin-bottom: 12px;
-            direction: rtl;
-            padding-right: 20px;
+
+.footer-sec2{
+    width: 35%;
+    h4{
+        margin-bottom: 12px;
+        direction: rtl;
+        padding-right: 20px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    flex-direction: column;
+    gap: 30px;
+    width: 90%;
+    .links {
+      font-size: 15px;
+    }
+    nav {
+      a {
+        padding: 10px 20px;
+      }
+    }
+  }
+  .hero .heroDiv h2 {
+    font-size: 25px;
+    p {
+      font-size: 25px;
+    }
+  }
+
+    .compains {
+      @include grid(20px, repeat(auto-fit, minmax(200px, 1fr)));
+      .card {
+        h2 {
+          font-size: 20px;
         }
-        pre{
-          line-height: 20px;
-          margin-bottom: 12px;
-          font-size: 12px;
-          font-weight: 100;
+        div p {
+          font-size: 15px;
         }
+      }
     }
-
-  }
-
-  @media all and (max-width:767px) {
-   .compains{
-     .card{
-      width: 45vw;
-    }
-   }
-  }
-
-  @media all and (min-width:967px) {
-   .compains{
-     .card{
-      width: 22vw;
-    }
-   }
-  }
+    
+}

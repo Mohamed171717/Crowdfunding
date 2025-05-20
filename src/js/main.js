@@ -54,6 +54,7 @@ async function loadAdminCampaigns() {
     const campaigns = await res.json();
         if (!campaignsContainer) return; 
         campaignsContainer.innerHTML = campaigns.map((campaign) => 
+            
         `
         <div class="campains-card">
             <div class="left">
@@ -67,7 +68,7 @@ async function loadAdminCampaigns() {
                 </div>
             </div>
             <div class="right">
-                <img src=${campaign.image} alt="photo" />
+                <img src="../../../${campaign.image}" alt="photo" />
             </div>
         </div>
         `
@@ -270,7 +271,7 @@ window.addEventListener("load", function() {
                     <button class="edit-btn" onclick="editCampaign(${c.id})">Edit</button>
                     </div>
                     <div class="right">
-                    <img src=${c.image} alt="photo" />
+                    <img src="../../../${c.image}" alt="photo" />
                 </div>
                 `;
                 campaignList.appendChild(li);
