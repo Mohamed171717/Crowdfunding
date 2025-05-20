@@ -9,33 +9,21 @@ const API = "http://localhost:3000";
 const campaignForm = document.getElementById("campaignForm");
 const campaignList = document.getElementById("campaignList");
 const imageInput = document.getElementById("imageInput");
-const creatorId = 1; // You can later dynamically assign it after login
 
 // pledges
-const pledgesContainer = document.getElementById("pledges-container");
-const campaignId = 1; // You can later dynamically assign it after login
-const userId = 2; // You can later dynamically assign it after login
+const pledgesAdminContainer = document.getElementById("pledges-admin-container");
+
+// get user from local storage
+const user = JSON.parse(localStorage.getItem("user"));
+console.log(user);
+
+    
+const creatorId = user.id;
+const userId = user.id;
+// const campaignId = 718;
+
 
 // admin.html dashboard
-// Fetch and display pledges
-async function loadPledges() {
-        const res = await fetch(`${API}/pledges?userId=${userId}?campaignId=${campaignId}`);
-        const pledges = await res.json();
-        if(!pledgesContainer) return;
-        pledgesContainer.innerHTML = pledges.map((pledge) => 
-        `
-        <div class="card">
-            <p><strong>${pledge.amount}</strong></p>
-            <p>userId: ${pledge.userId}</p>
-            <p>campaignId: ${pledge.campaignId}</p>
-        </div>
-        `
-    ).join("");
-};
-    
-loadPledges();
-
-
 // Fetch and display users
 async function loadUsers() {
     const res = await fetch(`${API}/users`);
@@ -48,9 +36,13 @@ async function loadUsers() {
             <p><strong>Username:</strong> ${user.name}</p>
             <p><strong>Email:</strong> ${user.email}</p>
             <p><strong>Role:</strong> ${user.role}</p>
-            <p><strong>Status:</strong> ${user.isActive ? "Active" : "Banned"}</p>
-            ${user.role === "campaigner" && !user.isApprovedRole ? `<button onclick="approveRole(${user.id})">Approve Role</button>` : ""}
-            ${user.isActive ? `<button onclick="banUser(${user.id})">Ban</button>` : `<button onclick="activeUser(${user.id})">Active</button>`}
+            <p><strong>Status:</strong> ${user.isActive ? "Active 🟢" : "Banned 🔴"}</p>
+            <p><strong>Role Status:</strong> ${user.isApprovedRole === true ? "Approved ✔️" : user.isApprovedRole === false ? "Rejected ❌" : "Pending"}</p>
+            <div>
+                ${`<button onclick="approveRole(${user.id})">Approve Role</button>`}
+                ${`<button class="danger" onclick="rejectRole(${user.id})">Reject Role</button>`}
+                ${user.isActive ? `<button onclick="banUser(${user.id})">Ban</button>` : `<button onclick="activeUser(${user.id})">Active</button>`}
+            </div>
         </div>
         `
     ).join("");
@@ -68,10 +60,10 @@ async function loadAdminCampaigns() {
                 <p><strong>${campaign.title}</strong></p>
                 <p>Goal: $${campaign.goal}</p>
                 <p>Deadline: ${campaign.deadline}</p>
-                <p>Status: ${campaign.isApproved === true ? "Approved" : campaign.isApproved === false ? "Rejected" : "Pending"}</p>
+                <p>Status: ${campaign.isApproved === true ? "Approved ✔️" : campaign.isApproved === false ? "Rejected ❌" : "Pending"}</p>
                 <div>
-                    ${!campaign.isApproved ? `<button onclick="approveCampaign(${campaign.id})">Approve</button>` : `<button onclick="rejectCampaign(${campaign.id})">Reject</button>`}
-                    <button onclick="deleteCampaign(${campaign.id})">Delete</button>
+                    ${!campaign.isApproved ? `<button onclick="approveCampaign('${campaign.id}')">Approve</button>` : `<button onclick="rejectCampaign(${campaign.id})">Reject</button>`}
+                    <button class="danger" onclick="deleteCampaign('${campaign.id}')">Delete</button>
                 </div>
             </div>
             <div class="right">
@@ -81,6 +73,23 @@ async function loadAdminCampaigns() {
         `
     ).join("");
 };
+
+// Fetch and display pledges
+async function loadAdminPledges() {
+    const res = await fetch(`${API}/pledges`);
+    const pledges = await res.json();
+    if(!pledgesAdminContainer) return;
+    pledgesAdminContainer.innerHTML = pledges.map((pledge) => 
+    `
+    <div class="card">
+        <p><strong>$${pledge.amount}</strong></p>
+        <p>userId: ${pledge.userId}</p>
+        <p>campaignId: ${pledge.campaignId}</p>
+    </div>
+    `
+    ).join("");
+};
+
 
 // ui active
 const linkList = document.querySelectorAll(".list");
@@ -103,12 +112,21 @@ async function approveRole(userId) {
     loadUsers();
 }
 
+async function rejectRole(userId) {
+    await fetch(`${API}/users/${userId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ isApprovedRole: false })
+    });
+    loadUsers();
+}
+
 // Ban a user
 async function banUser(userId) {
     await fetch(`${API}/users/${userId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ isActive: false })
+        body: JSON.stringify({ isActive: false, isApprovedRole: false })
     });
     loadUsers();
 }
@@ -133,7 +151,7 @@ async function approveCampaign(campaignId) {
     loadAdminCampaigns();
 }
 
-// Approve a campaign
+// reject a campaign
 async function rejectCampaign(campaignId) {
     await fetch(`${API}/campaigns/${campaignId}`, {
         method: "PATCH",
@@ -145,20 +163,28 @@ async function rejectCampaign(campaignId) {
 
 // Delete a campaign
 async function deleteCampaign(campaignId) {
-    await fetch(`${API}/campaigns/${campaignId}`, {
-        method: "DELETE"
-    });
-    loadAdminCampaigns();
+    if (confirm("Are you sure you want to proceed?")) {
+        await fetch(`${API}/campaigns/${campaignId}`, {
+            method: "DELETE"
+        });
+        loadAdminCampaigns();
+    } else {
+        return;
+    }
 }
 
 // Init
 loadUsers();
+loadAdminPledges();
 loadAdminCampaigns();
-
 
 
 // campainer.html dashboard
 window.addEventListener("load", function() {
+
+    const welcome = this.document.getElementById("welcome");
+    const pledgesContainer = document.getElementById("pledges-container");
+    if (welcome) welcome.textContent = `Welcome, ${user.name}`;
 
     if(!campaignForm) return;
     campaignForm.addEventListener("submit", async (e) => {
@@ -168,14 +194,37 @@ window.addEventListener("load", function() {
         const description = document.getElementById("description").value;
         const goal = parseFloat(document.getElementById("goal").value);
         const deadline = document.getElementById("deadline").value;
-        const image = imageInput.files[0] ? URL.createObjectURL(imageInput.files[0]) : null;
-        // const image = imageInput.files[0];
-        
-        // let imageBase64 = "";
+        const image = imageInput.files[0];
 
-        // if (image) {
-        //     imageBase64 = await toBase64(image);
-        // }
+        // format the image
+        function resizeImage(file, maxWidth = 300, maxHeight = 300) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                const img = new Image();
+                img.onload = function () {
+                    const canvas = document.createElement("canvas");
+                    const scale = Math.min(maxWidth / img.width, maxHeight / img.height);
+                    canvas.width = img.width * scale;
+                    canvas.height = img.height * scale;
+
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    const resizedBase64 = canvas.toDataURL("image/jpeg", 0.7);
+                    resolve(resizedBase64);
+                };
+                img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+        
+        let imageBase64 = "";
+
+        if (image) {
+            imageBase64 = await resizeImage(image);
+        }
 
         const campaignData = {
             title,
@@ -185,68 +234,122 @@ window.addEventListener("load", function() {
             creatorId,
             isApproved: false,
             rewards: [],
-            image,
+            image: imageBase64,
         };
-        const editId = campaignForm.getAttribute("data-edit-id");
-        if (editId) {
-            await fetch(`${API}/campaigns/${editId}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(campaignData)
-            });
-            campaignForm.removeAttribute("data-edit-id");
-        } else {
-            await fetch(`${API}/campaigns`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(campaignData),
-            });
-        }
-        
+
+        await fetch(`${API}/campaigns`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(campaignData),
+        });
+
         campaignForm.reset();
-        // check if the admin approved
         loadCampaigners();
     });
     
+    // load campaign based on campaigner id
     async function loadCampaigners() {
         const res = await fetch(`${API}/campaigns?creatorId=${creatorId}`);
         const campaigns = await res.json();
         
-        campaignList.innerHTML = "";
-        campaigns.forEach((c) => {
+        if (campaigns.length === 0) {
             const li = document.createElement("li");
-            li.innerHTML = `
-            <div class="left">
-                <p><strong>Name:</strong> ${c.title}</p>
-                <p><strong>Description:</strong> ${c.description}</p>
-                <p><strong>Goal:</strong> $${c.goal}</p>
-                <p><strong>Deadline:</strong> ${c.deadline}</p>
-                <button class="edit-btn" onclick="editCampaign(${c.id})">Edit</button>
-                </div>
-                <div class="right">
-                <img src=${c.image} alt="photo" />
-            </div>
-            `;
+            li.classList.add("no-campain");
+            li.textContent = "You Don't have any campaign yet.";
             campaignList.appendChild(li);
-        });
+        } else {
+            campaigns.forEach((c) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                <div class="left">
+                    <p><strong>Name:</strong> ${c.title}</p>
+                    <p><strong>Description:</strong> ${c.description}</p>
+                    <p><strong>Goal:</strong> $${c.goal}</p>
+                    <p><strong>Deadline:</strong> ${c.deadline}</p>
+                    <p><strong>Status:</strong> ${c.isApproved === true ? "Approved ✔️" : "Pending"}</p>
+                    <button class="edit-btn" onclick="editCampaign(${c.id})">Edit</button>
+                    </div>
+                    <div class="right">
+                    <img src=${c.image} alt="photo" />
+                </div>
+                `;
+                campaignList.appendChild(li);
+            });
+        }
     };
+
+    // load pledges based on campaigner id
+    async function loadPledges() {
+        const res = await fetch(`${API}/pledges?userId=${userId}`);
+        const pledges = await res.json();
+        
+        if (pledges.length === 0) {
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.textContent = "You don't have any pledge";
+            pledgesContainer.appendChild(card);
+        } else {
+            pledgesContainer.innerHTML = pledges.map((pledge) => 
+            `
+            <div class="card">
+                <p><strong>$${pledge.amount}</strong></p>
+                <p>userId: ${pledge.userId}</p>
+                <p>campaignId: ${pledge.campaignId}</p>
+            </div>
+            `
+            ).join("");
+        }
+    };
+
+    loadCampaigners();
+    loadPledges();
+
+});
+
+// edit form
+const editForm = this.document.getElementById("editForm");
+function closeEditedModel() {
+    document.getElementById("editModal").classList.add("hidden");
+    editForm.reset();
+}
+    if (editForm) editForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    
+    const campaignId = this.getAttribute("data-edit-id");
+    const updatedData = {
+        title: document.getElementById("edit-title").value,
+        description: document.getElementById("edit-description").value,
+        goal: parseFloat(document.getElementById("edit-goal").value),
+        deadline: document.getElementById("edit-deadline").value,
+    };
+
+    await fetch(`${API}/campaigns/${campaignId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedData),
+    });
+
+    closeEditedModel();
     loadCampaigners();
 });
+
+
 async function editCampaign(campaignId) {
     const res = await fetch(`${API}/campaigns/${campaignId}`);
     const campaign = await res.json();
 
-    // Fill form fields
+    document.getElementById("editModal").classList.remove("hidden");
+    // edit form fields
     document.getElementById("title").value = campaign.title;
     document.getElementById("description").value = campaign.description;
     document.getElementById("goal").value = campaign.goal;
     document.getElementById("deadline").value = campaign.deadline;
 
     // Store current campaign ID being edited
-    document.getElementById("campaignForm").setAttribute("data-edit-id", campaign.id);
-}
+    editForm.setAttribute("data-edit-id", campaign.id);
+};
+
+
 
 
 

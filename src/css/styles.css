@@ -258,7 +258,7 @@ body {
   cursor: pointer;
 }
 .admin-dashboard .sidebar ul li:hover.logout {
-  color: #db7474;
+  color: #d29a61;
 }
 .admin-dashboard .sidebar ul li:hover {
   padding: 15px;
@@ -317,6 +317,16 @@ body {
   padding: 8px 20px;
   width: -moz-fit-content;
   width: fit-content;
+  transition: 0.3s;
+}
+.admin-dashboard .main-content .section-box .card-grid .card button:hover {
+  background-color: #052c43;
+}
+.admin-dashboard .main-content .section-box .card-grid .card .danger {
+  background-color: #db7474;
+}
+.admin-dashboard .main-content .section-box .card-grid .card .danger:hover {
+  background-color: #b63434;
 }
 .admin-dashboard .main-content .section-box .card-grid .campains-card {
   display: flex;
@@ -352,6 +362,16 @@ body {
   padding: 8px 20px;
   width: -moz-fit-content;
   width: fit-content;
+  transition: 0.3s;
+}
+.admin-dashboard .main-content .section-box .card-grid .campains-card .left button:hover {
+  background-color: #052c43;
+}
+.admin-dashboard .main-content .section-box .card-grid .campains-card .left .danger {
+  background-color: #db7474;
+}
+.admin-dashboard .main-content .section-box .card-grid .campains-card .left .danger:hover {
+  background-color: #b63434;
 }
 .admin-dashboard .main-content .section-box .card-grid .campains-card .right {
   flex: 1;
@@ -468,6 +488,9 @@ body {
   transition: 0.3s;
   font-weight: 700;
 }
+.campaigner-dashboard section ul li .left button:hover {
+  background-color: #052c43;
+}
 .campaigner-dashboard section ul li img {
   margin-top: 10px;
   max-width: 150px;
@@ -476,12 +499,17 @@ body {
 .campaigner-dashboard section ul li strong {
   color: #052c43;
 }
+.campaigner-dashboard #campaignList .no-campain {
+  justify-content: center;
+  font-size: 20px;
+  padding: 30px 0;
+}
 .campaigner-dashboard .section-box {
   margin-bottom: 40px;
 }
 .campaigner-dashboard .section-box h2 {
   margin-bottom: 15px;
-  color: #052c43;
+  color: #267aa4;
 }
 .campaigner-dashboard .section-box .card-grid {
   display: grid;

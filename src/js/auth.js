@@ -38,6 +38,11 @@ window.addEventListener("load", () => {
                     alert("This user has been banned by the admin.");
                     return;
                 }
+
+                if (user.isApprovedRole === false && user.role === "campaigner") {
+                    alert("Your account is not approved by the admin.");
+                    return;
+                }
                 
                 // Save user data to localStorage
                 localStorage.setItem("user", JSON.stringify(user));

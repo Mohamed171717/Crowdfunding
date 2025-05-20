@@ -10,6 +10,24 @@
       "password": "123"
     },
     {
+      "id": "1322",
+      "name": "salma",
+      "role": "campaigner",
+      "isActive": true,
+      "isApprovedRole": true,
+      "email": "salma@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "127655",
+      "name": "ashraf",
+      "role": "campaigner",
+      "isActive": true,
+      "isApprovedRole": false,
+      "email": "ashraf@gmail.com",
+      "password": "123"
+    },
+    {
       "id": "2",
       "name": "ahmed",
       "role": "admin",
@@ -23,7 +41,7 @@
       "name": "ali",
       "role": "backer",
       "isActive": true,
-      "isApprovedRole": true,
+      "isApprovedRole": false,
       "email": "ali@gmail.com",
       "password": "789"
     },
@@ -38,9 +56,9 @@
   ],
   "campaigns": [
     {
-      "id": "1",
+      "id": "544441148",
       "title": "Smart Watch",
-      "creatorId": 1,
+      "creatorId": 132,
       "goal": 3500,
       "deadline": "2025-01-02",
       "isApproved": true,
@@ -49,11 +67,11 @@
       "description": "hello my name is moahmed"
     },
     {
-      "id": "2",
-      "title": "pc reader",
+      "id": "748791845",
+      "title": "pc watcher",
       "creatorId": 1,
-      "goal": 4000,
-      "deadline": "2024-12-31",
+      "goal": 6500,
+      "deadline": "2025-05-22",
       "isApproved": false,
       "image":"/Crowdfunding/src/images/flood.png",
       "rewards": [
@@ -62,10 +80,11 @@
           "title": "Bird",
           "amount": 100
         }
-      ]
+      ],
+      "description": "the best for all the time "
     },
     {
-      "id": "3",
+      "id": "fg445d",
       "title": "pc reader",
       "creatorId": 1,
       "goal": 4000,
@@ -114,7 +133,7 @@
       ]
     },
     {
-      "id": "6",
+      "id": "f1vc1254fg",
       "title": "pc reader",
       "creatorId": 1,
       "goal": 4000,
@@ -130,7 +149,7 @@
       ]
     },
     {
-      "id": "718d",
+      "id": "718",
       "title": "smart phone watcher",
       "description": "i will help people to be good at smart phone",
       "goal": 2000,
@@ -147,11 +166,11 @@
       "image": "/Crowdfunding/src/images/Tsunami.png"
     },
     {
-      "id": "226d",
-      "title": "sfdfdfjdsbfjsb",
-      "description": "fdsbfbdsjfbdsjf",
-      "goal": 230154,
-      "deadline": "2025-05-22",
+      "id": "405",
+      "title": "mmmmmmm",
+      "description": "sdsmf,d,dmf,dm",
+      "goal": 8987,
+      "deadline": "2025-05-23",
       "creatorId": 1,
       "isApproved": false,
       "rewards": [],
@@ -171,19 +190,18 @@
   ],
   "pledges": [
     {
-      "id": "1",
-      "campaignId": 1,
-      "userId": 2,
+      "id": "14454",
+      "campaignId": "718",
+      "userId": 1,
       "amount": 100,
       "rewardId": 1
     },
     {
-      "id": "2",
-      "campaignId": 1,
-      "userId": 2,
+      "id": "223443",
+      "campaignId": "718",
+      "userId": 1,
       "amount": 100,
       "rewardId": 1
     }
-  ],
-  "updates": []
+  ]
 }
