@@ -33,11 +33,18 @@ $card-bg: #ffffff;
             padding: 20px;
             border-radius: $b-radius;
             box-shadow: $b-shadow;
-
             display: flex;
             flex-direction: column;
             gap: 15px;
-
+            fieldset {
+                height: 60px;
+                legend {
+                    margin-bottom: 7px;
+                }
+                label {
+                    margin-right: 10px;
+                }
+            }
             input, textarea {
                 padding: 10px;
                 border: 1px solid #d1d5db;
@@ -145,11 +152,9 @@ $card-bg: #ffffff;
             padding: 20px;
             border-radius: $b-radius;
             box-shadow: $b-shadow;
-
             display: flex;
             flex-direction: column;
             gap: 15px;
-
             input, textarea {
                 padding: 10px;
                 border: 1px solid #d1d5db;

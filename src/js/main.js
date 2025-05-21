@@ -20,7 +20,6 @@ console.log(user);
     
 const creatorId = user.id;
 const userId = user.id;
-// const campaignId = 718;
 
 
 // admin.html dashboard
@@ -68,7 +67,7 @@ async function loadAdminCampaigns() {
                 </div>
             </div>
             <div class="right">
-                <img src="../../../${campaign.image}" alt="photo" />
+                <img src="${campaign.image}" alt="photo" />
             </div>
         </div>
         `
@@ -180,10 +179,9 @@ loadAdminCampaigns();
 
 
 // campainer.html dashboard
+const pledgesContainer = document.getElementById("pledges-container");
 window.addEventListener("load", function() {
-
     const welcome = this.document.getElementById("welcome");
-    const pledgesContainer = document.getElementById("pledges-container");
     if (welcome) welcome.textContent = `Welcome, ${user.name}`;
 
     if(!campaignForm) return;
@@ -192,8 +190,9 @@ window.addEventListener("load", function() {
         
         const title = document.getElementById("title").value;
         const description = document.getElementById("description").value;
-        const goal = parseFloat(document.getElementById("goal").value);
+        const goal = document.getElementById("goal").value;
         const deadline = document.getElementById("deadline").value;
+        const category = campaignForm.category.value;
         const image = imageInput.files[0];
 
         // format the image
@@ -230,6 +229,7 @@ window.addEventListener("load", function() {
             title,
             description,
             goal,
+            category,
             deadline,
             creatorId,
             isApproved: false,
@@ -268,9 +268,10 @@ window.addEventListener("load", function() {
                     <p><strong>Deadline:</strong> ${c.deadline}</p>
                     <p><strong>Status:</strong> ${c.isApproved === true ? "Approved ✔️" : "Pending"}</p>
                     <button class="edit-btn" onclick="editCampaign(${c.id})">Edit</button>
-                    </div>
-                    <div class="right">
-                    <img src="../../../${c.image}" alt="photo" />
+                    <button class="view-pledges-btn" onclick="loadPledges('${c.id}')">View Pledges</button>
+                </div>
+                <div class="right">
+                    <img src="${c.image}" alt="photo" />
                 </div>
                 `;
                 campaignList.appendChild(li);
@@ -278,33 +279,31 @@ window.addEventListener("load", function() {
         }
     };
 
-    // load pledges based on campaigner id
-    async function loadPledges() {
-        const res = await fetch(`${API}/pledges?campaignId=${campaignId}`);
-        const pledges = await res.json();
-        
-        if (pledges.length === 0) {
-            const card = document.createElement("div");
-            card.classList.add("card");
-            card.textContent = "You don't have any pledge";
-            pledgesContainer.appendChild(card);
-        } else {
-            pledgesContainer.innerHTML = pledges.map((pledge) => 
-            `
-            <div class="card">
-                <p><strong>Username:</strong> ${pledge.username}</p>
-                <p><strong>Amount:</strong> $${pledge.amount}</p>
-                <p><strong>campaignId:</strong> ${pledge.campaignId}</p>
-            </div>
-            `
-            ).join("");
-        }
-    };
-
     loadCampaigners();
-    loadPledges();
-
 });
+
+ // load pledges based on campaign id
+async function loadPledges(campaignId) {
+    const res = await fetch(`${API}/pledges?campaignId=${campaignId}`);
+    const pledges = await res.json();
+    
+    if (pledges.length === 0) {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.textContent = "You don't have any pledge";
+        pledgesContainer.appendChild(card);
+    } else {
+        pledgesContainer.innerHTML = pledges.map((pledge) => 
+        `
+        <div class="card">
+            <p><strong>Username:</strong> ${pledge.username}</p>
+            <p><strong>Amount:</strong> $${pledge.amount}</p>
+            <p><strong>campaignId:</strong> ${pledge.campaignId}</p>
+        </div>
+        `
+        ).join("");
+    }
+};
 
 // edit form
 const editForm = this.document.getElementById("editForm");
@@ -349,77 +348,6 @@ async function editCampaign(campaignId) {
     editForm.setAttribute("data-edit-id", campaign.id);
 };
 
-
-//donatePage
-
-// let loc=new URLSearchParams(window.location.search);
-// let id=loc.get("id");
-// console.log(id);
-
-// let compainsdiv=document.querySelector('.compaindetails');
-// let compainsTitle=document.querySelector('.title-for-campain');
-// let imgsec=document.querySelector('.img-sec');
-// let divsec=document.querySelector('.div-sec');
-// let rewardsec=document.querySelector(".rewardsec");
-// let confirmBtn=document.querySelector('.confirm');
-// let amountInput=document.querySelector(".amount");
-// let backButton=document.querySelector(".backButton");
-// async function loadCampains(){
-//     try{
-//     let campain=await fetch(`http://localhost:3000/campaigns/${id}`);
-//     let campains=await campain.json();
-//         //  console.log(campains)
-//     // campains.forEach(element => {
-//         // console.log(divsec['image']);
-//         // let divCard=document.createElement('div');
-//         // divCard.classList.add("card");
-//         //               <pre>CreatorId: ${campains["creatorId"]}</pre>
-//       compainsTitle.innerHTML=`<h2 '>${campains["title"]}</h2>`
-
-//         imgsec.innerHTML=`<img  src="${campains["image"]}" alt="img">`;
-//             let html=`
-//                <div>
-//               <p>Description: <span>${campains["description"]}</span></p>
-//               <p>Goal: <span>${campains["goal"]}</span></p>
-//                <p>Deadline: <span>${campains["deadline"]}</span></p>
-//                </div>
-//             `;
-//             divsec.innerHTML=html;
-//             let rewards=campains["rewards"];
-//             // console.log(rewards);
-//             rewards.forEach(element => {
-//                 let reward=
-//                 `<div>
-//                 <h2>Reward</h2>
-//                  <h4>title: ${element["title"]}</h4>
-//                <pre>Id: ${element["id"]}</pre>
-//               <p>Amount: ${element["amount"]}</p>
-//                </div>
-//             `;
-//             rewardsec.innerHTML+=reward;
-//             });
-            
-//     //  if(element.isApproved){
-//          compainsdiv.appendChild(imgsec);    
-//          compainsdiv.appendChild(divsec); 
-//          compainsdiv.appendChild(rewardsec)   ;
-//     //  }
-//     // }
-// // );
-   
-   
-// }catch(e){
-//     console.log(e);
-//     }
-// }
-
-// loadCampains();
-
-// confirmBtn.addEventListener("click",function(e){
-//     e.preventDefault();
-//     alert("Thank's For Your help");
-//      amountInput.value="";
-// })
 
 
 

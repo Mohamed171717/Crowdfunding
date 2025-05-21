@@ -613,6 +613,15 @@ body {
   flex-direction: column;
   gap: 15px;
 }
+.campaigner-dashboard section form fieldset {
+  height: 60px;
+}
+.campaigner-dashboard section form fieldset legend {
+  margin-bottom: 7px;
+}
+.campaigner-dashboard section form fieldset label {
+  margin-right: 10px;
+}
 .campaigner-dashboard section form input, .campaigner-dashboard section form textarea {
   padding: 10px;
   border: 1px solid #d1d5db;
@@ -897,13 +906,9 @@ body {
   }
 }
 .backerPage {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  align-items: normal;
-  min-height: 100vh;
-  background-color: #e4e4e4;
+  width: 70%;
+  margin: 0 auto;
+  background-color: #f0eeef;
 }
 .backerPage .backerPage-content {
   flex: 1;
@@ -921,10 +926,9 @@ body {
 .backerPage .backerPage-content .section-box h2 {
   margin-bottom: 15px;
   color: #052c43;
-  font-size: 25px;
-  width: 30%;
 }
 .backerPage .backerPage-content .section-box .check-box {
+  text-align: center;
   background-color: #f0eeef;
   box-shadow: 2px 2px 10px rgb(172, 169, 169);
   padding: 10px;
@@ -949,29 +953,19 @@ body {
   gap: 20px;
 }
 .backerPage .backerPage-content .section-box .card-grid .card {
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  gap: 20px;
-  flex: 1;
-  flex-direction: column;
   background-color: #f0eeef;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 2px 10px rgb(172, 169, 169);
 }
 .backerPage .backerPage-content .section-box .card-grid .card img {
   width: 100%;
 }
 .backerPage .backerPage-content .section-box .card-grid .card div {
-  margin: 0 0 15px 20px;
-}
-.backerPage .backerPage-content .section-box .card-grid .card div pre {
-  margin-bottom: 15px;
+  padding: 20px;
 }
 .backerPage .backerPage-content .section-box .card-grid .card div p {
   margin: 10px 0;
-  font-size: 19px;
-  font-weight: bolder;
+  font-weight: 700;
 }
 .backerPage .backerPage-content .section-box .card-grid .card div button {
   background-color: #267aa4;
@@ -998,24 +992,21 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 .backerPage .backerPage-content .section-box #pledges-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 .backerPage .backerPage-content .section-box #pledges-container div {
   display: inline-block;
   text-align: left;
-  padding: 0;
-  width: 32%;
+  padding: 20px;
   background-color: #f0eeef;
 }
 .backerPage .backerPage-content .section-box #pledges-container div p {
-  width: 12rem;
   color: #267aa4;
 }
 .backerPage .backerPage-content .section-box #pledges-container div p span {
-  color: black;
+  color: rgba(0, 0, 0, 0.8);
   font-weight: 200;
 }
 

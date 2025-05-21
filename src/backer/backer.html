@@ -5,43 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backer</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../images/panda.ico">
+
     <script src="backer.js" defer></script>
 </head>
 <body>
+    <!-- header -->
+    <header class="home-header">
+        <h1><span>We</span>Fund</h1>
+        <div>
+            <a class="links" href="#home">Home</a>
+            <a class="links" href="#campagins">Campagins</a>
+            <a class="links" href="#about">About us</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./src/js/login.html" target="_blank">LogIn</a></li>
+                <li><a href="./src/signUp/signup.html" target="_blank">SignUp</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- backer page -->
     <div class="backerPage">
-     
         <main class="backerPage-content">
-            <header>
+            <header class="becker-header">
                 <h1>Backer Panel</h1>
             </header>
-
-
             <section class="section-box" id="campaigns">
-                <h2>Campaigns</h2>
                 <div class="check-box">
                     <h3>Categories</h3>
-                     <label >
-                 <input type="radio" name="cat" value="Education" class="filter-check"> Education
-               </label>
-
-               <label >
-                 <input type="radio"name="cat" value="Health" class="filter-check"> Health
-               </label>
-               <label >
-                 <input type="radio" name="cat" value="Poor People" class="filter-check"> Poor people
-               </label>
-               <label >
-                 <input type="radio" name="cat" value="all" class="filter-check"> All
-               </label>
+                    <label >
+                        <input type="radio" name="cat" value="Education" class="filter-check"> Education
+                    </label>
+                    <label >
+                        <input type="radio"name="cat" value="Health" class="filter-check"> Health
+                    </label>
+                    <label >
+                        <input type="radio" name="cat" value="Poor People" class="filter-check"> Poor people
+                    </label>
+                    <label >
+                        <input type="radio" name="cat" value="all" class="filter-check"> All
+                    </label>
                 </div>
+                <h2>Campaigns</h2>
                 <div id="campaigns-container" class="card-grid"></div>
             </section>
-
             <section class="section-box" id="pledge">
                 <h2>Pledges</h2>
                 <div id="pledges-container" class="card-grid"></div>
             </section>
         </main>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="box">
+                <h3>WeFund</h3>
+                <ul class="social">
+                    <li>
+                        <a href="#" class="facebook">
+                            <i class="fab fa-facebook-f">🍇</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter">
+                            <i class="fab fa-twitter">🧀</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="linkedin">
+                            <i class="fab fa-linkedin-in">🍔</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="youtube">
+                            <i class="fab fa-youtube">🍕</i>
+                        </a>
+                    </li>
+                </ul>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, voluptas!</p>
+            </div>
+            <div class="box">
+                <div class="links">
+                    <ul>
+                        <li><a href="#">important link 1</a></li>
+                        <li><a href="#">important link 2</a></li>
+                        <li><a href="#">important link 3</a></li>
+                        <li><a href="#">important link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box">
+                <div class="line">
+                    <i class="fas fa-map-marked-alt fa-fw"></i>
+                    <div class="info">egypt, cairo, Lorem ipsum dolor sit amet.</div>
+                </div>
+                <div class="line">
+                    <i class="fas fa-clock fa-fw"></i>
+                    <div class="info">egypt, cairo, Lorem ipsum dolor sit amet.</div>
+                </div>
+                <div class="line">
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">egypt, cairo, Lorem ipsum dolor sit amet.</div>
+                </div>
+            </div>
+            <div class="box footer-gallery">
+                <img src="../../src/images/foot1.gif" alt="photo">
+                <img src="../../src/images/foot2.gif" alt="photo">
+                <img src="../../src/images/foot3.gif" alt="photo">
+                <img src="../../src/images/foot4.gif" alt="photo">
+            </div>
+        </div>
+        <p class="copyright">made with love by <span>We</span>Fund</p>
     </div>
 </body>
 </html>

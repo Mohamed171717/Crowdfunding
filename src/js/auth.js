@@ -43,6 +43,11 @@ window.addEventListener("load", () => {
                     alert("Your account is not approved by the admin.");
                     return;
                 }
+
+                if (user.isApprovedRole === false && user.role === "backer") {
+                    alert("Your account is not approved by the admin.");
+                    return;
+                }
                 
                 // Save user data to localStorage
                 localStorage.setItem("user", JSON.stringify(user));
@@ -56,7 +61,7 @@ window.addEventListener("load", () => {
                         window.location.href = "./campainer/campainer.html";
                         break;
                     case "backer":
-                        window.location.href = "./backer/watcher.html";
+                        window.location.href = "../backer/backer.html";
                         break;
                     default:
                         alert("Unknown user role.");

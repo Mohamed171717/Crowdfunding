@@ -7,19 +7,17 @@ async function loadCampains(){
     let campains=await campain.json();
 
     campains.forEach(element => {
-        // console.log(element.image);
-        let divCard=document.createElement('div');
+        let divCard = document.createElement('div');
         divCard.classList.add("card");
             let html=`
-            <img  src="${element.image}" alt="img">
-               <div>
-               <pre>CreatorId: ${element.creatorId}</pre>
-              <h2>${element.title}</h2>
-              <p>Goal: ${element.goal}</p>
-              <p>Category: ${element.category}</p>
-               <p>Deadline: ${element.deadline}</p>
-               <button class="donate-btn" id="btn-${element.id}" >Donate</button
-               </div>
+                <img  src="${element.image}" alt="img">
+                <div>
+                    <h2>${element.title}</h2>
+                    <p>Goal: $${element.goal}</p>
+                    <p>Category: ${element.category}</p>
+                    <p>Deadline: ${element.deadline}</p>
+                    <button class="donate-btn" id="btn-${element.id}" >Donate</button
+                </div>
             `
             divCard.innerHTML=html;
      if(element.isApproved){
@@ -28,9 +26,8 @@ async function loadCampains(){
       divCard.addEventListener("click",function(event){
     let btn=event.target.closest("button");
     if(!btn)return;
-    // if(btn.innerText=="Donate"){
-        window.location.href=`/Crowdfunding/src/backer/donatePage.html?id=${element.id}`;
-    // }
+    window.location.href=`./donatePage.html?id=${element.id}`;
+
 });
     });
    

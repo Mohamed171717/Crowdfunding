@@ -1,33 +1,25 @@
 .backerPage {
-    @include flex;
-    align-items: normal;
-    min-height: 100vh;
-    background-color: #e4e4e4;
-
-
+    width: 70%;
+    margin: 0 auto;
+    background-color: $third;
     .backerPage-content {
         flex: 1;
         padding: 40px;
-
         header {
             margin-bottom: 20px;
             h1 {
                 color: $shadow;
             }
         }
-
         .section-box {
             margin-bottom: 40px;
-
             h2 {
                 margin-bottom: 15px;
                 color: $second;
-                 font-size: 25px;
-                width: 30%;
             }
             .check-box{
+                text-align: center;
                 background-color: $third;
-                // margin: px;
                 box-shadow: 2px 2px 10px rgb(172, 169, 169);
                 padding: 10px;
                 margin-bottom: 12px;
@@ -39,48 +31,34 @@
                     margin: 10px 5px;
                 }
                 label{
-                   margin-right: 5px;
-                   font-size: 18px;
-                   color:$primary;
-                   font-weight: bolder;
-                   
+                    margin-right: 5px;
+                    font-size: 18px;
+                    color:$primary;
+                    font-weight: bolder;
                 }
             }
             .card-grid {
-            
                 @include grid(20px, repeat(auto-fit, minmax(450px, 1fr)));
                 .card {
-                    @include flex(center, start);
-                    flex: 1;
-                    flex-direction: column;
                     background-color: $third;
                     border-radius: $b-radius;
-                    // padding: 15px;
-                    box-shadow: $b-shadow;
+                    box-shadow: 2px 2px 10px rgb(172, 169, 169);;
                     img{
                         width: 100%;
                     }
                     div{
-                        // padding: 15px;
-                        margin: 0 0 15px 20px;
-
-                        pre{
-                            margin-bottom: 15px;
-                        }
+                        padding: 20px;
                         p{
                             margin: 10px 0;
-                            font-size: 19px;
-                            font-weight: bolder
+                            font-weight: $fw-700;
                         }
-                         button {
-                        @include button2;
-                        padding: 8px 20px;
-                        margin-top: 10px;
-                        width: fit-content;
+                        button {
+                            @include button2;
+                            padding: 8px 20px;
+                            margin-top: 10px;
+                            width: fit-content;
+                        }
                     }
-                    }
-                   
-                   
                 }
                 .campains-card {
                     @include flex;
@@ -88,32 +66,23 @@
                     background-color: $third;
                     border-radius: $b-radius;
                     box-shadow: $b-shadow;
-
-                   
-                    
-                    
                 }
             }
         #pledges-container{
-            // display: flex;
-                @include flex;
+                @include grid;
 
             div{
                 display: inline-block;
                 text-align: left;
-                padding: 0;
-                width: 32%;
+                padding: 20px;
                 background-color:$third;
                 p{
-                    width: 12rem;
                     color: $primary;
                     span{
-                        color: black;
+                        color: $shadow;
                         font-weight: 200;
                     }
-                    // background-color: red;
                 }
-                // box-shadow: 2px 2px 10px rgb(211, 210, 210);
             }
         }
         }
@@ -122,16 +91,13 @@
 
 
 @media (max-width: 767px) {
-    // .sidebar {
-    //     display: none;
-    // }
     .backerPage {
     .backerPage-content {
         padding: 40px 20px;
 
         .section-box{
             .card-grid{
-                 .card {
+                .card {
         display: flex;
         flex-direction: row;
         img{
@@ -154,12 +120,3 @@
     }
 
 }
-
-// @media (max-width: 768px) {
-//     .admin-dashboard .sidebar {
-//         width: 218px;
-//         background-color: #267aa4;
-//         color: #f0eeef;
-//         padding: 30px;
-//     }
-// }

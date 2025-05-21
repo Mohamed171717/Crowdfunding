@@ -32,6 +32,21 @@
                 <textarea id="description" placeholder="Description" required></textarea>
                 <input type="number" id="goal" placeholder="Goal Amount" required />
                 <input type="date" id="deadline" required />
+                <fieldset>
+                    <legend>Select Category:</legend>
+                    <label>
+                        <input type="radio" name="category" value="Health" required />
+                        Health
+                    </label>
+                    <label>
+                        <input type="radio" name="category" value="Education" />
+                        Education
+                    </label>
+                    <label>
+                        <input type="radio" name="category" value="Poor People" />
+                        Poor People
+                    </label>
+                </fieldset>
                 <input type="file" id="imageInput" accept="image/*" required />
                 <button type="submit">Create Campaign</button>
             </form>
