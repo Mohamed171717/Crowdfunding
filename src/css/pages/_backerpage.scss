@@ -92,31 +92,30 @@
 
 @media (max-width: 767px) {
     .backerPage {
-    .backerPage-content {
-        padding: 40px 20px;
-
-        .section-box{
-            .card-grid{
-                .card {
-        display: flex;
-        flex-direction: row;
-        img{
-            width: 50%;
-            height: 100%;
-        }
-        div{
-            width: 50%;
-        }
+        .backerPage-content {
+            padding: 40px 20px;
+            .section-box{
+                .card-grid{
+                    .card {
+                        display: flex;
+                        flex-direction: column;
+                    img{
+                        width: 100%;
+                    }
+                    div{
+                        width: 100%;
+                    }
+                }
             }
         }
-    }
-   
     }}
-    .section-box .card-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
     .campains-card .right img {
         margin: 20px;
     }
+    .backerPage .backerPage-content .section-box .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+
 
 }

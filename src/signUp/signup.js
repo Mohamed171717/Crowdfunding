@@ -1,10 +1,12 @@
 
 
-let form = document.querySelector(".form-section");
+// let form = document.querySelector(".form-section");
 let username = document.querySelector('#name');
   let email = document.querySelector('#email');
   let pass = document.querySelector('#pass');
-  let role = document.querySelector('.type');
+  // let role = document.querySelector('.type');
+  // let role = document.querySelector('input[type="radio"]:checked');
+  let form = document.getElementById('signup-form');
   let link=document.querySelector('.link');
   let invalidName=document.querySelector(".invalidName");
   let invalidEmail=document.querySelector(".invalidEmail");
@@ -39,7 +41,10 @@ this.style.setProperty("border", "1px solid red");
 });
 form.addEventListener('submit', function (e) {
   e.preventDefault(); 
-  signUp(username.value, email.value, pass.value, role.value);
+  const role = form.role.value;
+  console.log(role);
+  
+  signUp(username.value, email.value, pass.value, role);
 });
 
 async function signUp(name, email, password, role) {
@@ -65,8 +70,8 @@ async function signUp(name, email, password, role) {
       },
       body: JSON.stringify({
         name,
-          role,
-          isActive: true,
+        role,
+        isActive: true,
         isApprovedRole: false,
         email,
         password,

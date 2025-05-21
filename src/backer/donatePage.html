@@ -4,35 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DonatePage</title>
-    <!-- <script src="donate.js" defer></script> -->
-     <script src="../js/main.js" defer></script>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../images/panda.ico">
+    <script src="donate.js" defer></script>
+     <!-- <script src="../js/main.js" defer></script> -->
 </head>
 <body>
-   <h1 class="title-for-campain"> </h1> 
-   <a href="./backer.html"class="backButton">Back to home</a> 
-  <main class="compaindetails">
-        <section class="img-sec">
-             </section>
-       <section class="div-sec"></section>
-       <section class="rewardsec"></section>
-       
-      
-    </main>
+    <h1 class="title-for-campain"> </h1> 
+    <a href="./backer.html"class="backButton">Back to home</a> 
+    <main class="compaindetails">
+        <section class="img-sec"></section>
+        <section class="div-sec"></section>
         <section class="amountsec">
-        <form action="" style="display: grid;" class="amountform">
-            <label for="paymentway">Choose payment way</label>
-        <select name="paymentway" >
-            <option >Visa</option>
-             <option >Wallet</option>
-              <option >InstaPay</option>
-        </select>
-        <label for="amount">Enter Amount</label>
-        <input class="amount" type="text" name="amount"  placeholder="10$" required>
-
-        <input class="confirm" type="submit" value="Confirm">
-        </form>
-       </section>
-      
+            <form style="display: grid;" class="amountform">
+                <label for="paymentway">Choose payment way</label>
+                <select name="paymentway" >
+                    <option >Visa</option>
+                    <option >Wallet</option>
+                    <option >InstaPay</option>
+                </select>
+                <label for="amount">Enter Amount</label>
+                <input class="amount" type="text" name="amount"  placeholder="10$" required>
+                <input id="confirm" class="confirm" type="submit" value="Confirm">
+            </form>
+        </section>
+    </main>
 </body>
 </html>

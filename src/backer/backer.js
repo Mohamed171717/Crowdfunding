@@ -1,39 +1,37 @@
-let campainsdiv= document.querySelector("#campaigns-container");
-let pledgesContainer=document.querySelector('#pledges-container');
+let campainsdiv = document.querySelector("#campaigns-container");
+let pledgesContainer = document.querySelector('#pledges-container');
 
 async function loadCampains(){
     try{
-    let campain=await fetch('http://localhost:3000/campaigns');
-    let campains=await campain.json();
+        let campain=await fetch('http://localhost:3000/campaigns');
+        let campains=await campain.json();
 
-    campains.forEach(element => {
-        let divCard = document.createElement('div');
-        divCard.classList.add("card");
-            let html=`
-                <img  src="${element.image}" alt="img">
-                <div>
-                    <h2>${element.title}</h2>
-                    <p>Goal: $${element.goal}</p>
-                    <p>Category: ${element.category}</p>
-                    <p>Deadline: ${element.deadline}</p>
-                    <button class="donate-btn" id="btn-${element.id}" >Donate</button
-                </div>
-            `
-            divCard.innerHTML=html;
-     if(element.isApproved){
-         campainsdiv.appendChild(divCard);    
-     }
-      divCard.addEventListener("click",function(event){
-    let btn=event.target.closest("button");
-    if(!btn)return;
-    window.location.href=`./donatePage.html?id=${element.id}`;
+        campains.forEach(element => {
+            let divCard = document.createElement('div');
+            divCard.classList.add("card");
+                let html=`
+                    <img  src="${element.image}" alt="img">
+                    <div>
+                        <h2>${element.title}</h2>
+                        <p>Goal: $${element.goal}</p>
+                        <p>Category: ${element.category}</p>
+                        <p>Deadline: ${element.deadline}</p>
+                        <button class="donate-btn" id="btn-${element.id}" >Donate</button
+                    </div>
+                `
+                divCard.innerHTML=html;
+        if(element.isApproved){
+            campainsdiv.appendChild(divCard);    
+        }
+        divCard.addEventListener("click",function(event){
+        let btn=event.target.closest("button");
+        if(!btn)return;
+        window.location.href=`./donatePage.html?id=${element.id}`;
 
-});
     });
-   
-   
-}catch(e){
-    console.log(e);
+        });
+    } catch(e) {
+        console.log(e);
     }
 }
 
@@ -42,19 +40,18 @@ loadCampains();
 
 //filter compains
 
-const checkboxes=document.querySelectorAll(".filter-check")
+const checkboxes = document.querySelectorAll(".filter-check")
 // checkboxes.forEach(element => {
     
 // });
 checkboxes.forEach(element => {
-           
     element.addEventListener("change",function(){
         console.log(element.value);
-                     campainsdiv.innerHTML="";
-        if(element.value=="all"){
+        campainsdiv.innerHTML="";
+        if(element.value == "all"){
            loadCampains();
-        }else{
-        fillterCompains(element.value);
+        } else {
+            fillterCompains(element.value);
         }
     });
 });

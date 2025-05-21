@@ -29,7 +29,10 @@ async function fetchCompains(){
                 </div>
                 `
             divCard.innerHTML= html;
-            campainsdiv.appendChild(divCard);  
+            if(element.isApproved){
+        
+         campainsdiv.appendChild(divCard);    
+     }
         });
     } catch(e) {
         console.log(e);

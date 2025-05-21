@@ -785,7 +785,7 @@ body {
 .hero {
   width: 100%;
   height: 100vh;
-  background-image: url("https://as2.ftcdn.net/v2/jpg/06/87/24/25/1000_F_687242507_Hv3D1a4l8dpDlGOhzX9tC1dyftfvesCC.jpg");
+  background-image: url("../images/landed.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -1016,20 +1016,19 @@ body {
   }
   .backerPage .backerPage-content .section-box .card-grid .card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .backerPage .backerPage-content .section-box .card-grid .card img {
-    width: 50%;
-    height: 100%;
+    width: 100%;
   }
   .backerPage .backerPage-content .section-box .card-grid .card div {
-    width: 50%;
-  }
-  .section-box .card-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 100%;
   }
   .campains-card .right img {
     margin: 20px;
+  }
+  .backerPage .backerPage-content .section-box .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 .title-for-campain {
@@ -1161,4 +1160,10 @@ body {
 }
 .amountsec .confirm:hover {
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .compaindetails {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=styles.css.map */

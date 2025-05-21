@@ -40,7 +40,7 @@ async function loadUsers() {
             <div>
                 ${`<button onclick="approveRole('${user.id}')">Approve Role</button>`}
                 ${`<button class="danger" onclick="rejectRole('${user.id}')">Reject Role</button>`}
-                ${user.isActive ? `<button onclick="banUser('${user.id}')">Ban</button>` : `<button onclick="activeUser(${user.id})">Active</button>`}
+                ${user.isActive ? `<button onclick="banUser('${user.id}')">Ban</button>` : `<button onclick="activeUser('${user.id}')">Active</button>`}
             </div>
         </div>
         `
@@ -267,7 +267,7 @@ window.addEventListener("load", function() {
                     <p><strong>Goal:</strong> $${c.goal}</p>
                     <p><strong>Deadline:</strong> ${c.deadline}</p>
                     <p><strong>Status:</strong> ${c.isApproved === true ? "Approved ✔️" : "Pending"}</p>
-                    <button class="edit-btn" onclick="editCampaign(${c.id})">Edit</button>
+                    <button class="edit-btn" onclick="editCampaign('${c.id}')">Edit</button>
                     <button class="view-pledges-btn" onclick="loadPledges('${c.id}')">View Pledges</button>
                 </div>
                 <div class="right">
